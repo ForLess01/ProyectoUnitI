@@ -1,0 +1,6 @@
+COMMAND python3 -m laboratorio.run_tests
+GROUP rbac_idor cases=3
+[PASS] RBAC-01 | 526.605 ms | {"status":403,"code":"forbidden","role":"reader"}
+[PASS] RBAC-02 | 532.183 ms | {"status":200,"role":"admin","scope":"synthetic-lab"}
+[PASS] IDOR-01 | 532.660 ms | {"own_object_status":200,"other_object_status":404,"other_object_content_disclosed":false}
+GROUP_RESULT group=rbac_idor passed=3/3 failed=0 http_requests=10 duration_ms=1591.448 result=/outputs/groups/rbac_idor.json

@@ -1,0 +1,95 @@
+{
+  "group": "rbac_idor",
+  "started_utc": "2026-10-19T03:14:46.161Z",
+  "finished_utc": "2026-10-19T03:14:47.754Z",
+  "command": "python3 -m laboratorio.run_tests",
+  "cases_total": 3,
+  "cases_passed": 3,
+  "cases_failed": 0,
+  "http_requests": 10,
+  "request_payload_bytes_sent": 393,
+  "response_body_bytes_received": 1433,
+  "request_duration_ms_total": 73.502,
+  "duration_ms": 1591.448,
+  "runtime": {
+    "python": "3.12.3",
+    "sqlite": "3.45.1",
+    "platform": "Linux"
+  },
+  "cases": [
+    {
+      "case_id": "RBAC-01",
+      "case": "lector recibe denegación en panel admin",
+      "expected": "Reader role receives HTTP 403 from the administrator panel.",
+      "observed": {
+        "status": 403,
+        "code": "forbidden",
+        "role": "reader"
+      },
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group rbac_idor --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:46.161Z",
+      "finished_utc": "2026-10-19T03:14:46.688Z",
+      "duration_ms": 526.605,
+      "metrics": {
+        "http_requests": 3,
+        "request_payload_bytes_sent": 130,
+        "response_body_bytes_received": 409,
+        "request_duration_ms_total": 21.829,
+        "max_request_duration_ms": 19.902
+      }
+    },
+    {
+      "case_id": "RBAC-02",
+      "case": "admin autorizado accede a su panel",
+      "expected": "Admin role receives HTTP 200 from the synthetic administrator panel.",
+      "observed": {
+        "status": 200,
+        "role": "admin",
+        "scope": "synthetic-lab"
+      },
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group rbac_idor --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:46.688Z",
+      "finished_utc": "2026-10-19T03:14:47.221Z",
+      "duration_ms": 532.183,
+      "metrics": {
+        "http_requests": 3,
+        "request_payload_bytes_sent": 133,
+        "response_body_bytes_received": 442,
+        "request_duration_ms_total": 26.414,
+        "max_request_duration_ms": 24.509
+      }
+    },
+    {
+      "case_id": "IDOR-01",
+      "case": "objeto de otro usuario no se divulga",
+      "expected": "Reader can read object A but receives a generic HTTP 404 without object B content.",
+      "observed": {
+        "own_object_status": 200,
+        "other_object_status": 404,
+        "other_object_content_disclosed": false
+      },
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group rbac_idor --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:47.221Z",
+      "finished_utc": "2026-10-19T03:14:47.754Z",
+      "duration_ms": 532.66,
+      "metrics": {
+        "http_requests": 4,
+        "request_payload_bytes_sent": 130,
+        "response_body_bytes_received": 582,
+        "request_duration_ms_total": 25.259,
+        "max_request_duration_ms": 22.543
+      }
+    }
+  ],
+  "execution_command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group rbac_idor --artifact-dir /outputs --runtime-dir /outputs/runtime",
+  "terminal_capture": {
+    "method": "pty_subprocess_docker_exec",
+    "process_exit_status": 0,
+    "duration_ms": 1707.857,
+    "timed_out": false,
+    "output_limited": false
+  }
+}

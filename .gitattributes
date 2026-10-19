@@ -1,0 +1,8 @@
+# Preserve original evidence bytes: SHA-256 manifests depend on exact content.
+evidencias/** -text
+recursos/figuras/** -text
+recursos/fuentes/** -text
+fuentes/documentos/** -text
+*.pdf binary
+*.png binary
+*.ttf binary

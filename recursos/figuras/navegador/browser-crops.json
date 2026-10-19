@@ -1,0 +1,115 @@
+{
+  "description": "recorte geométrico de la tarjeta de navegador original para legibilidad; sin edición del contenido",
+  "coordinate_system": "pixels; origin at top-left; rectangle right/bottom edges are exclusive",
+  "operation": "Pillow crop only; no scaling, redraw, retouching, or text reconstruction",
+  "items": [
+    {
+      "description": "recorte geométrico de la tarjeta de navegador original para legibilidad; sin edición del contenido",
+      "original": "evidencias/laboratorio/capturas/browser-01-mfa-required.png",
+      "destination": "recursos/figuras/navegador/browser-01-detalle.png",
+      "original_dimensions": {
+        "width": 1440,
+        "height": 980
+      },
+      "destination_dimensions": {
+        "width": 544,
+        "height": 622
+      },
+      "original_rect": {
+        "x": 743,
+        "y": 87,
+        "width": 544,
+        "height": 622
+      },
+      "destination_rect": {
+        "x": 0,
+        "y": 0,
+        "width": 544,
+        "height": 622
+      },
+      "original_sha256": "f8dcae66d24e19ed6259bfb0a853396b03ea63b368e9d4e3721ae1659daa2d5c",
+      "destination_sha256": "b26a7c0917512cb684f5c7989cbba1e75ede8c5ae0df1ce00057fe7b12293da6"
+    },
+    {
+      "description": "recorte geométrico de la tarjeta de navegador original para legibilidad; sin edición del contenido",
+      "original": "evidencias/laboratorio/capturas/browser-02-access-allowed.png",
+      "destination": "recursos/figuras/navegador/browser-02-detalle.png",
+      "original_dimensions": {
+        "width": 1440,
+        "height": 980
+      },
+      "destination_dimensions": {
+        "width": 544,
+        "height": 587
+      },
+      "original_rect": {
+        "x": 743,
+        "y": 96,
+        "width": 544,
+        "height": 587
+      },
+      "destination_rect": {
+        "x": 0,
+        "y": 0,
+        "width": 544,
+        "height": 587
+      },
+      "original_sha256": "c8eddda8cdf24ca79e29d2e738e848aef5123aca9144ffae232a67d98fbaf417",
+      "destination_sha256": "71e0d7e39d1fd827e98cfda275f07a0f4538f665269012c5ff79f06fcedd97e4"
+    },
+    {
+      "description": "recorte geométrico de la tarjeta de navegador original para legibilidad; sin edición del contenido",
+      "original": "evidencias/laboratorio/capturas/browser-03-rbac-403.png",
+      "destination": "recursos/figuras/navegador/browser-03-detalle.png",
+      "original_dimensions": {
+        "width": 1440,
+        "height": 980
+      },
+      "destination_dimensions": {
+        "width": 544,
+        "height": 587
+      },
+      "original_rect": {
+        "x": 743,
+        "y": 96,
+        "width": 544,
+        "height": 587
+      },
+      "destination_rect": {
+        "x": 0,
+        "y": 0,
+        "width": 544,
+        "height": 587
+      },
+      "original_sha256": "d5205fd892a6f44062fc459f66e4e2dd5c04f9e45df6163de1fd3c3645e26e5b",
+      "destination_sha256": "e8fdd9bc31ae454979c243ba7d0f22abb26e31dbe1040547a72e023c713b8a9e"
+    },
+    {
+      "description": "recorte geométrico de la tarjeta de navegador original para legibilidad; sin edición del contenido",
+      "original": "evidencias/laboratorio/capturas/browser-04-session-revoked.png",
+      "destination": "recursos/figuras/navegador/browser-04-detalle.png",
+      "original_dimensions": {
+        "width": 1440,
+        "height": 980
+      },
+      "destination_dimensions": {
+        "width": 544,
+        "height": 587
+      },
+      "original_rect": {
+        "x": 743,
+        "y": 96,
+        "width": 544,
+        "height": 587
+      },
+      "destination_rect": {
+        "x": 0,
+        "y": 0,
+        "width": 544,
+        "height": 587
+      },
+      "original_sha256": "e05fc64fb56c2155c804b58bdec88d8a88b0b03ccfe003b517a115115f752bf7",
+      "destination_sha256": "e47b08d2b7225cfe814e84e8010c565024860be075671c2a9372dbbc00baef61"
+    }
+  ]
+}

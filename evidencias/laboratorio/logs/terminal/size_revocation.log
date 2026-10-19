@@ -1,0 +1,5 @@
+COMMAND python3 -m laboratorio.run_tests
+GROUP size_revocation cases=2
+[PASS] INPUT-01 | 538.478 ms | {"limit_bytes":65536,"oversized_bytes":65537,"oversized_status":413,"normal_bytes":73,"normal_status":201}
+[PASS] SESSION-01 | 537.117 ms | {"revoke_status":200,"reused_session_status":401,"old_session_rejected":true}
+GROUP_RESULT group=size_revocation passed=2/2 failed=0 http_requests=8 duration_ms=1075.595 result=/outputs/groups/size_revocation.json

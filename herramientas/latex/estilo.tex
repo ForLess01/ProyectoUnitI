@@ -1,0 +1,200 @@
+\ProvidesFile{estilo.tex}[Estilo reutilizable para informes académicos]
+
+% Este archivo se carga desde la raíz del proyecto con \input.
+\RequirePackage{fontspec}
+\RequirePackage[spanish]{babel}
+\RequirePackage[a4paper,margin=20mm,headheight=14pt,headsep=6mm,footskip=12mm]{geometry}
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\RequirePackage{array}
+\RequirePackage{longtable}
+\RequirePackage{tabularx}
+\RequirePackage{booktabs}
+\RequirePackage{enumitem}
+\RequirePackage{pdflscape}
+\RequirePackage{listings}
+\RequirePackage{tcolorbox}
+\tcbuselibrary{breakable,listings}
+\RequirePackage{xurl}
+\RequirePackage{fancyhdr}
+\RequirePackage{hyperref}
+
+% No se permite sustituir Montserrat por una fuente del sistema.
+\newcommand{\InformeCompruebaFuente}[1]{%
+  \IfFileExists{recursos/fuentes/Montserrat/#1}{}{%
+    \PackageError{estilo}{Falta la fuente local Montserrat: #1}%
+      {Compila desde la raiz del proyecto y restaura los archivos de recursos/fuentes/Montserrat.}%
+  }%
+}
+\InformeCompruebaFuente{Montserrat-Regular.ttf}
+\InformeCompruebaFuente{Montserrat-Bold.ttf}
+\InformeCompruebaFuente{Montserrat-Italic.ttf}
+\InformeCompruebaFuente{Montserrat-BoldItalic.ttf}
+\InformeCompruebaFuente{Montserrat-SemiBold.ttf}
+\InformeCompruebaFuente{Montserrat-SemiBoldItalic.ttf}
+
+\setmainfont{Montserrat}[
+  Path = recursos/fuentes/Montserrat/,
+  Extension = .ttf,
+  UprightFont = Montserrat-Regular,
+  BoldFont = Montserrat-Bold,
+  ItalicFont = Montserrat-Italic,
+  BoldItalicFont = Montserrat-BoldItalic
+]
+\newfontfamily\InformeSemibold{Montserrat}[
+  Path = recursos/fuentes/Montserrat/,
+  Extension = .ttf,
+  UprightFont = Montserrat-SemiBold,
+  ItalicFont = Montserrat-SemiBoldItalic
+]
+% Se conserva la familia monoespaciada de TeX para listings y comandos.
+
+\definecolor{InformeNavy}{HTML}{19324A}
+\definecolor{InformeTeal}{HTML}{167D86}
+\definecolor{InformeTexto}{HTML}{27343B}
+\definecolor{InformeGrisClaro}{HTML}{F2F5F7}
+\definecolor{InformeBorde}{HTML}{CBD5DC}
+
+\AtBeginDocument{\fontsize{10pt}{13pt}\selectfont}
+\color{InformeTexto}
+\setlength{\emergencystretch}{2em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlength{\tabcolsep}{3.8pt}
+\renewcommand{\arraystretch}{1.12}
+\setlength{\LTpre}{4pt}
+\setlength{\LTpost}{4pt}
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlist{itemsep=2pt,topsep=4pt,parsep=0pt,partopsep=0pt}
+
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newenvironment{TablaCompacta}{%
+  \begingroup
+  \small
+  \setlength{\tabcolsep}{3.8pt}%
+  \renewcommand{\arraystretch}{1.08}%
+}{\endgroup}
+
+\lstdefinestyle{InformeCodigo}{%
+  language={},
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  breakatwhitespace=false,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+  upquote=true
+}
+\newtcblisting{CodigoTerminal}{%
+  listing only,
+  breakable,
+  colback=InformeGrisClaro,
+  colframe=InformeBorde,
+  boxrule=0.4pt,
+  arc=1mm,
+  left=2mm,
+  right=2mm,
+  top=1mm,
+  bottom=1mm,
+  listing options={style=InformeCodigo}
+}
+\newtcolorbox{RecuadroInforme}[1][]{%
+  breakable,
+  colback=InformeGrisClaro,
+  colframe=InformeBorde,
+  coltitle=InformeNavy,
+  fonttitle=\InformeSemibold,
+  boxrule=0.4pt,
+  arc=1mm,
+  left=2mm,
+  right=2mm,
+  top=1.5mm,
+  bottom=1.5mm,
+  #1
+}
+
+% Portadilla parametrizada: institución, título, subtítulo, autoría, unidad y fecha.
+\newcommand{\PortadaInforme}[6]{%
+  \begin{titlepage}
+    \thispagestyle{empty}
+    \centering
+    \vspace*{12mm}
+    {\InformeSemibold\Large #1\par}
+    \vfill
+    {\color{InformeTeal}\rule{0.22\textwidth}{2pt}\par}
+    \vspace{8mm}
+    {\color{InformeNavy}\bfseries\fontsize{25}{30}\selectfont #2\par}
+    \vspace{6mm}
+    {\large #3\par}
+    \vfill
+    {\InformeSemibold #4\par}
+    {\small #5\par}
+    \vspace{10mm}
+    {\small #6\par}
+    \vspace*{10mm}
+  \end{titlepage}%
+}
+
+% Las cuatro etiquetas quedan vacías hasta que el autor las configure.
+\newcommand{\InformeEncabezadoIzquierdo}{}
+\newcommand{\InformeEncabezadoDerecho}{}
+\newcommand{\InformePieIzquierdo}{}
+\newcommand{\InformePieDerecho}{}
+\newcommand{\InformeConfiguraEncabezados}{%
+  \pagestyle{fancy}
+  \fancyhf{}
+  \fancyhead[L]{\small\nouppercase{\InformeEncabezadoIzquierdo}}
+  \fancyhead[R]{\small\nouppercase{\InformeEncabezadoDerecho}}
+  \fancyfoot[L]{\small\nouppercase{\InformePieIzquierdo}}
+  \fancyfoot[C]{\small\thepage}
+  \fancyfoot[R]{\small\nouppercase{\InformePieDerecho}}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0pt}
+  \fancypagestyle{plain}{%
+    \fancyhf{}
+    \fancyhead[L]{\small\nouppercase{\InformeEncabezadoIzquierdo}}
+    \fancyhead[R]{\small\nouppercase{\InformeEncabezadoDerecho}}
+    \fancyfoot[L]{\small\nouppercase{\InformePieIzquierdo}}
+    \fancyfoot[C]{\small\thepage}
+    \fancyfoot[R]{\small\nouppercase{\InformePieDerecho}}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0pt}
+  }
+}
+\InformeConfiguraEncabezados
+
+\newcommand{\FuenteFigura}[1]{%
+  \par\smallskip{\footnotesize\color{InformeTexto}\textit{Fuente:} #1\par}%
+}
+\newcommand{\FiguraEvidencia}[4]{%
+  \begin{figure}[tbp]
+    \centering
+    \includegraphics[width=\linewidth,height=0.72\textheight,keepaspectratio]{#1}
+    \caption{#2}\label{#4}
+    \FuenteFigura{#3}
+  \end{figure}%
+}
+
+\newcommand{\RefFigura}[1]{Figura~\ref{#1}}
+\newcommand{\RefTabla}[1]{Tabla~\ref{#1}}
+\newcommand{\RefAnexo}[1]{Anexo~\ref{#1}}
+\newcommand{\RefPagina}[1]{página~\pageref{#1}}
+\newcommand{\IniciarAnexos}{\clearpage\appendix}
+\newcommand{\Anexo}[1]{\section{#1}}
+\newenvironment{PaginaApaisada}{\begin{landscape}}{\end{landscape}}
+
+\hypersetup{
+  colorlinks=true,
+  hypertexnames=false,
+  linkcolor=InformeNavy,
+  citecolor=InformeTeal,
+  urlcolor=InformeTeal,
+  pdfcreator={XeLaTeX}
+}
+
+% Reserve room for the report's Roman section labels in the contents.
+\makeatletter
+\renewcommand*{\l@section}{\@dottedtocline{1}{1.5em}{3.6em}}
+\renewcommand*{\l@subsection}{\@dottedtocline{2}{3.8em}{4.3em}}
+\makeatother

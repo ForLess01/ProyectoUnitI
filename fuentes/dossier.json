@@ -1,0 +1,524 @@
+{
+  "titulo": "Dossier documental para plan de ciberseguridad de la Universidad Nacional del Altiplano Puno",
+  "fecha_consulta_local": "2026-10-18",
+  "alcance": "Investigación documental pública, referencias y hechos verificables para uso de la autora única del informe. No redacta capítulos finales, no evalúa sistemas UNAP y no prueba implementación de controles.",
+  "consigna": {
+    "archivo_leido_completo": "TRABAJO 01 Plan_Ciberseguridad.md",
+    "lineas": 371,
+    "observaciones": [
+      "La consigna incluye datos generales, introducción, finalidad, objetivos, alcance, inventario/clasificación, STRIDE, threat intelligence, MITRE ATT&CK, Cyber Kill Chain, Zero Trust, NIST CSF 2.0, controles, gestión de incidentes, capacitación, indicadores y diez anexos.",
+      "La numeración XII aparece dos veces: primero para NIST CSF 2.0 y luego para controles.",
+      "La consigna no incluye rúbrica, pesos de evaluación ni datos internos de activos, controles o incidentes."
+    ]
+  },
+  "reglas_de_lectura": [
+    "Separar evidencia institucional, obligación normativa, propuesta del plan y estado técnico local aún desconocido.",
+    "Los enlaces de servicios UNAP prueban que el portal los publica; no prueban operación, tecnología, autenticación o exposición.",
+    "Los avisos extranjeros aportan TTP e indicadores de contexto; no son evidencia de ataque a la UNA Puno.",
+    "Los subcódigos CSF son resultados candidatos, no controles implantados ni equivalencias automáticas con STRIDE/ATT&CK."
+  ],
+  "hechos_institucionales": [
+    {
+      "hecho": "La portada institucional se identifica como UNAP/UNA Puno y publica accesos a servicios académicos y de investigación.",
+      "fuentes": ["R01"],
+      "limite": "Catálogo web público; no se verificó funcionamiento de los servicios, su arquitectura ni sus controles."
+    },
+    {
+      "hecho": "La portada enlaza Matriculas y notas a campus.unap.edu.pe; Tramites Titulos Grados y Constancias a tramites.unap.edu.pe; Aula Virtual a aulavirtual2.unap.edu.pe; y presenta Repositorio Institucional y Biblioteca Digital.",
+      "fuentes": ["R01"],
+      "limite": "No afirmar que el enlace de títulos/grados/constancias sea un sistema general de trámite documentario o expediente electrónico."
+    },
+    {
+      "hecho": "El ROF 2025 ubica OTI como órgano de apoyo dependiente de Rectorado y le asigna sistemas informáticos, infraestructura de cómputo, gobierno digital y telecomunicaciones; el art. 71 incluye mantener sistemas/redes y velar por la seguridad de la información automatizada.",
+      "fuentes": ["R02"],
+      "limite": "Las funciones orgánicas no acreditan herramientas, controles activos, recursos, resultados ni designación como OSCD."
+    }
+  ],
+  "catalogo_servicios_publicados_en_portada": [
+    {"etiqueta_literal": "Matriculas y notas", "url_publicada": "https://campus.unap.edu.pe/", "fuente": "R01"},
+    {"etiqueta_literal": "Tramites Titulos Grados y Constancias", "url_publicada": "https://tramites.unap.edu.pe/", "fuente": "R01"},
+    {"etiqueta_literal": "Aula Virtual", "url_publicada": "https://aulavirtual2.unap.edu.pe/", "fuente": "R01"},
+    {"etiqueta_literal": "Repositorio Institucional", "url_publicada": "https://portal.unap.edu.pe/repositorio-institucional", "url_aplicacion_enlazada": "https://repositorio.unap.edu.pe/", "tipo_enlace": "ruta interna publicada en la portada y aplicación enlazada desde esa página", "fuente": "R01"},
+    {"etiqueta_literal": "Biblioteca Digital", "url_publicada": "https://portal.unap.edu.pe/biblioteca-digital", "url_aplicacion_enlazada": "https://biblioteca.unap.edu.pe/opac_css/", "tipo_enlace": "ruta interna publicada en la portada y aplicación enlazada desde esa página", "fuente": "R01"}
+  ],
+  "observaciones_de_integridad_de_fuente": [
+    {
+      "observacion": "La salida de lectura de las páginas internas de repositorio y biblioteca incluyó al pie un enlace externo rotulado bandar togel.",
+      "fuente": "R01",
+      "estado": "Observado en la salida webfetch el 2026-10-18 en dos páginas internas; no confirmado con navegador independiente ni por la entidad.",
+      "accion_segura": "No se siguió el enlace externo. No se clasifica como IOC ni como incidente/compromiso; validar la integridad de las páginas con su titular antes de reutilizar ese elemento."
+    }
+  ],
+  "hechos_no_disponibles_en_fuentes_consultadas": [
+    "Inventario real y cantidades de endpoints, servidores, bases de datos, cámaras, redes, respaldos, servicios cloud y proveedores.",
+    "Diagramas, flujos de datos, arquitectura y dependencias internas de portal, campus, trámites, aula virtual y repositorio.",
+    "Tecnologías, versiones, exposición externa, vulnerabilidades, configuraciones o autenticación desplegadas en UNAP.",
+    "Estado de MFA, firewall, WAF, EDR, SIEM, cifrado, segmentación, gestión de parches, backups o pruebas de recuperación.",
+    "Designaciones vigentes de OSCD, CSIRT institucional, Oficial de Datos Personales, responsable del plan y propietarios de servicios.",
+    "Incidentes institucionales, registros de incidentes, métricas, línea base, porcentaje de controles y evidencias de pruebas.",
+    "Aprobación, periodo de vigencia, cronograma institucional autorizado o presupuesto del plan.",
+    "Rúbrica o ponderación académica de la consigna. La ausencia de información pública no acredita que no exista internamente."
+  ],
+  "reglas_normativas_de_notificacion": [
+    {
+      "fuente": "R14",
+      "articulos": ["2", "7", "8", "9.1", "9.3"],
+      "sustento": "El DU 007-2020 alcanza a las entidades públicas dentro del ámbito del art. 2; crea/define el CNSD en el art. 7. El art. 9.1 incluye entidades de la Administración Pública en las obligaciones de notificar al CNSD todo incidente de seguridad digital. El art. 9.3 dispone SGSI y CSIRT institucional cuando corresponda.",
+      "plazo_48h": "El DU por sí solo no establece un plazo plano de 48 h para todo incidente.",
+      "limite": "Validar el encuadre jurídico y el canal/protocolo vigente; no afirmar implementación del SGSI o CSIRT."
+    },
+    {
+      "fuente": "R15",
+      "articulos": ["7.2", "9.2", "11.1", "31", "32", "33", "34"],
+      "sustento": "El Reglamento dispone implementación progresiva del marco de seguridad digital institucional (7.2), evaluación anual y conservación de resultados de gestión de riesgos para entidades públicas (9.2), y asigna al OSCD de la entidad pública coordinación del SGSI y del registro/notificación obligatoria al CNSD con el CSIRT institucional (11.1). El art. 31.1 enumera canales oficiales; el 31.2 fija descripción, clasificación, impacto, tipos de datos y respuesta inmediata como información mínima, y pide además IOC/detalles operativos.",
+      "plazo_48h": "Solo para incidentes clasificados críticos: notificación obligatoria al CNSD dentro de un máximo de 48 h desde que el PSD toma conocimiento (32.1). Para clasificaciones distintas, art. 32.2 remite a los plazos de la Clasificación de Incidentes de Seguridad Digital de SGTD-PCM. El art. 33.2 ordena que entidades públicas clasifiquen conforme a ella.",
+      "limite": "No trasladar el plazo crítico a todos los incidentes; confirmar clasificación, canales y roles actuales."
+    },
+    {
+      "fuente": "R16",
+      "articulos": ["9", "16"],
+      "sustento": "Principio de seguridad y deber de adoptar medidas técnicas, organizativas y legales para garantizar seguridad y evitar alteración, pérdida, tratamiento o acceso no autorizado a datos personales.",
+      "plazo_48h": "Estos artículos no establecen un plazo general de notificación.",
+      "limite": "Analizar el tratamiento, roles de responsable/encargado, tipo de datos y reglas especiales aplicables."
+    },
+    {
+      "fuente": "R17",
+      "articulos": ["34.1", "34.3", "34.4", "34.5"],
+      "sustento": "El art. 34.1 condiciona la notificación a la ANPD en un máximo de 48 h a exposición de grandes volúmenes por cantidad o tipo, posible afectación de muchas personas, datos sensibles o perjuicio evidente a otros derechos/libertades; el cómputo parte del conocimiento/constancia y la demora debe justificarse. La obligación persiste aunque se haya subsanado el incidente. El art. 34.3 requiere comunicar a la persona titular, sin dilación indebida y dentro de 48 h, cuando se afecten sus derechos; demoras deben justificarse. El art. 34.5 añade notificación al CNSD cuando el incidente se desarrolle en/mediante entorno digital.",
+      "excepcion": "El art. 34.4 elimina la obligación de comunicar el incidente al titular de datos si no se produjo la afectación descrita y fue superado totalmente mediante las medidas adoptadas. Esa excepción no debe confundirse con la notificación a la ANPD bajo el art. 34.1.",
+      "limite": "No escribir «todo incidente debe notificarse en 48 h»; diferenciar ANPD, titular de datos y CNSD."
+    }
+  ],
+  "nist_csf2_mapeo_candidato": [
+    {
+      "funcion": "GOVERN (GV)",
+      "descripcion_funcion": "Estrategia, expectativas y política de gestión del riesgo cibernético establecidas, comunicadas y monitoreadas.",
+      "elementos": [
+        {"codigo": "GV.RR-02", "texto": "Roles, responsabilidades y autoridades de gestión de riesgo cibernético establecidas, comunicadas, comprendidas y exigidas."},
+        {"codigo": "GV.RM-01", "texto": "Objetivos de gestión de riesgos establecidos y acordados por las partes interesadas organizacionales."}
+      ]
+    },
+    {
+      "funcion": "IDENTIFY (ID)",
+      "descripcion_funcion": "Comprender los riesgos cibernéticos actuales de la organización.",
+      "elementos": [
+        {"codigo": "ID.AM-01", "texto": "Se mantienen inventarios de hardware gestionado por la organización."},
+        {"codigo": "ID.AM-02", "texto": "Se mantienen inventarios de software, servicios y sistemas gestionados por la organización."},
+        {"codigo": "ID.RA-01", "texto": "Las vulnerabilidades de los activos se identifican, validan y registran."}
+      ]
+    },
+    {
+      "funcion": "PROTECT (PR)",
+      "descripcion_funcion": "Usar salvaguardas para gestionar el riesgo cibernético.",
+      "elementos": [
+        {"codigo": "PR.AA-03", "texto": "Se autentican usuarios, servicios y hardware."},
+        {"codigo": "PR.PS-02", "texto": "El software se mantiene, reemplaza y retira de acuerdo con el riesgo."},
+        {"codigo": "PR.AT-01", "texto": "El personal recibe sensibilización y capacitación para realizar tareas generales considerando riesgos cibernéticos."}
+      ]
+    },
+    {
+      "funcion": "DETECT (DE)",
+      "descripcion_funcion": "Encontrar y analizar posibles ataques y compromisos.",
+      "elementos": [
+        {"codigo": "DE.CM-01", "texto": "Se monitorean redes y servicios de red para hallar eventos potencialmente adversos."},
+        {"codigo": "DE.AE-02", "texto": "Se analizan eventos potencialmente adversos para comprender las actividades asociadas."}
+      ]
+    },
+    {
+      "funcion": "RESPOND (RS)",
+      "descripcion_funcion": "Tomar acciones frente a un incidente de ciberseguridad detectado.",
+      "elementos": [
+        {"codigo": "RS.MA-01", "texto": "El plan de respuesta a incidentes se ejecuta coordinado con terceros pertinentes cuando se declara un incidente."},
+        {"codigo": "RS.CO-02", "texto": "Se notifica de los incidentes a las partes interesadas internas y externas."}
+      ]
+    },
+    {
+      "funcion": "RECOVER (RC)",
+      "descripcion_funcion": "Restaurar activos y operaciones afectados por un incidente.",
+      "elementos": [
+        {"codigo": "RC.RP-01", "texto": "La parte de recuperación del plan se ejecuta cuando se inicia desde el proceso de respuesta."},
+        {"codigo": "RC.CO-03", "texto": "Las actividades de recuperación y el progreso para restaurar capacidades se comunican a las partes interesadas designadas."}
+      ]
+    }
+  ],
+  "boletines": [
+    {
+      "id": "B01",
+      "fuente": "R19",
+      "titulo": "CISA Urges Patching Critical Vulnerability in BeyondTrust Remote Support",
+      "fecha_publicacion": "2026-10-16",
+      "producto_cve": "BeyondTrust Remote Support (antes Bomgar), CVE-2026-102764",
+      "hecho": "CISA informa bypass crítico de autenticación con explotación activa; versiones 26.2.3 y anteriores afectadas. Parches disponibles para versiones soportadas 24.3.1 o posteriores; anteriores deben actualizar primero. CISA dice que despliegues SaaS alojados ya fueron parcheados y que agregó el CVE a KEV el mismo día.",
+      "prioridad_del_aviso": "Alta/urgente según la advertencia CISA; verificar inventario y remediar solo cuando coincidan producto, modalidad y versión.",
+      "exposicion_unap": "No verificada: no se halló fuente que confirme uso, versión, autoalojamiento, exposición o compromiso de la UNA.",
+      "attack_version": null,
+      "ioc": "El aviso no enumera IOC.",
+      "no_afirmar": "No afirmar que la UNA use BeyondTrust o haya sido atacada."
+    },
+    {
+      "id": "B02",
+      "fuente": "R20",
+      "titulo": "#StopRansomware: Gunra Ransomware",
+      "fecha_publicacion": "2026-08-10",
+      "hecho": "CISA y entidades asociadas describen RaaS y doble extorsión mediante cifrado y amenaza de publicar datos. Academia aparece en la lista de sectores de víctimas del aviso. Se recomiendan parcheo de servicios internet-facing, respaldos offline/inmutables probados y segmentación.",
+      "prioridad_del_aviso": "Relevante para preparar controles y respuesta a ransomware, por incluir academia y doble extorsión.",
+      "exposicion_unap": "No verificada; la categoría academia no identifica a UNAP ni prueba ataque local.",
+      "attack_version": "ATT&CK v19.1, declarada por el aviso; contrastar IDs con v20.0 si se reutilizan.",
+      "ioc": "R20 incluye IP/dominios con primera y última observación; la propia fuente advierte que pueden ser históricos y que deben verificarse antes de bloquear.",
+      "no_afirmar": "No presentar indicadores históricos como activos, ni como hallados en redes UNAP."
+    },
+    {
+      "id": "B03",
+      "fuente": "R18",
+      "titulo": "Chinese Government-linked Cyber Threat Actors Combine Automated and Hands-on Hacking Tools to Steal Sensitive Data",
+      "alert_code": "AA26-281A",
+      "fecha_publicacion": "2026-10-08",
+      "hecho": "CISA/agencias asociadas describen escaneo/explotación, XSS, password spraying contra Exchange, clientes VPN para persistencia y exfiltración de correos/credenciales; educación figura entre organizaciones afectadas descritas. Medidas: deshabilitar servicios no usados, sanitizar entrada web, MFA y parcheo.",
+      "prioridad_del_aviso": "Útil para análisis de robo de credenciales y datos, superficie web y monitoreo de TTP.",
+      "exposicion_unap": "No verificada; la mención de educación es contexto sectorial y no identifica a la UNA.",
+      "attack_version": "El aviso dice ATT&CK version 19; conservar esa versión y revalidar antes de usar v20.0.",
+      "mapeos_destacables_del_aviso": ["T1189 para su escenario XSS/drive-by", "T1074.001 para staging local"],
+      "no_afirmar": "No reclasificar el XSS de este aviso como T1566/phishing sin evidencia."
+    }
+  ],
+  "indicadores_defanged": [
+    {
+      "fuente": "R18",
+      "tipo": "domain-name",
+      "valor_en_fuente": "dns.studiocloud.xyz",
+      "valor_defanged": "dns[.]studiocloud[.]xyz",
+      "contexto": "El texto CISA indica que DiagTrack.exe iniciado por live700_v1.exe estableció comunicación HTTP cifrada con el dominio y que el FBI lo atribuyó a Integrity Tech.",
+      "fecha_aviso": "2026-10-08",
+      "first_seen": null,
+      "last_seen": null,
+      "confidence": "La fuente reporta/atribuye el hallazgo; no publica una puntuación numérica individual. El indicador no fue resuelto ni visitado."
+    },
+    {
+      "fuente": "R20",
+      "tipo": "ipv4-addr",
+      "valor_en_fuente": "23.239.119[.]2",
+      "valor_defanged": "23.239.119[.]2",
+      "contexto": "Tabla 2: IP asociada a infraestructura Gunra.",
+      "fecha_aviso": "2026-08-10",
+      "first_seen": "2025-07 (la fuente solo especifica mes)",
+      "last_seen": "2025-11-06",
+      "confidence": "Incluida por el aviso conjunto como asociada; no se publica puntaje numérico individual. La fuente alerta que los IOC pueden ser históricos y pide validarlos antes de bloquear. No se consultó la IP."
+    }
+  ],
+  "checklist_fuentes_por_consiga": [
+    {"apartado": "I-V: datos generales, introducción, finalidad, objetivos y alcance", "fuentes": ["R01", "R02", "R03", "R14", "R15", "R16", "R17"], "pendiente": "Responsable formal, aprobación, vigencia y alcance acordado."},
+    {"apartado": "VI: inventario y clasificación", "fuentes": ["R01", "R02", "R03"], "pendiente": "Inventario real, propietarios, flujos, terceros, datos y clasificación local."},
+    {"apartado": "VII: STRIDE", "fuentes": ["R06"], "pendiente": "Diagramas y análisis por sistema; R06 solo define categorías."},
+    {"apartado": "VIII: Threat Intelligence", "fuentes": ["R18", "R19", "R20"], "pendiente": "Fuentes, responsables, frecuencia, caducidad y proceso UNAP de validación/comunicación."},
+    {"apartado": "IX: MITRE ATT&CK", "fuentes": ["R08", "R09", "R10", "R11", "R12", "R13", "R18", "R20"], "pendiente": "Mapear comportamientos de avisos en su versión y evidencias de detección local; no presumir brechas."},
+    {"apartado": "X: Cyber Kill Chain", "fuentes": ["R07", "R18", "R20"], "pendiente": "Aplicación conceptual a escenario; no inventar fases observadas en UNAP."},
+    {"apartado": "XI: Zero Trust", "fuentes": ["R04", "R12"], "pendiente": "Identidades, dispositivos, recursos, MFA, privilegios y segmentación actuales."},
+    {"apartado": "XII NIST CSF 2.0 y controles", "fuentes": ["R03", "R04", "R05", "R15", "R17", "R18", "R19", "R20"], "pendiente": "Perfil actual/objetivo, dueños, herramientas, línea base y evidencia de controles."},
+    {"apartado": "Gestión de incidentes y registro", "fuentes": ["R05", "R14", "R15", "R16", "R17"], "pendiente": "OSCD/CSIRT designados, canales/protocolos vigentes, contactos y registros reales."},
+    {"apartado": "Capacitación, indicadores, cronograma y anexos", "fuentes": ["R03", "R13", "R15", "R20"], "pendiente": "Plan aprobado, audiencias, asistencia, resultados, métricas, pruebas y cronograma institucional."}
+  ],
+  "bibliografia": [
+    {
+      "id": "R01",
+      "titulo": "Portada institucional de la Universidad Nacional del Altiplano Puno",
+      "institucion": "Universidad Nacional del Altiplano Puno",
+      "fecha_publicacion": null,
+      "detalle_fecha": "Página dinámica sin fecha editorial visible.",
+      "fecha_consulta": "2026-10-18",
+      "url": "https://portal.unap.edu.pe/",
+      "url_pdf": null,
+      "pinpoint": "Encabezado, menú Servicios, Aula Virtual, Repositorio Institucional y Biblioteca Digital.",
+      "extracto_sustento": "El portal identifica UNA Puno y lista Matriculas y notas, Tramites Titulos Grados y Constancias, Aula Virtual, Repositorio Institucional y Biblioteca Digital.",
+      "limites": "Prueba etiquetas/enlaces publicados, no funcionamiento, arquitectura, identidad del proveedor o controles. La salida de dos páginas internas incluyó un enlace externo rotulado bandar togel no confirmado; se registró por separado como anomalía de integridad de fuente, no como IOC ni incidente.",
+      "copia_local": null
+    },
+    {
+      "id": "R02",
+      "titulo": "Reglamento de Organización y Funciones de la UNA-PUNO, aprobado por RR N.° 2212-2025-R-UNA",
+      "institucion": "Universidad Nacional del Altiplano Puno",
+      "fecha_publicacion": "2025",
+      "detalle_fecha": "El PDF permite verificar año y número de resolución, no día de aprobación.",
+      "fecha_consulta": "2026-10-18",
+      "url": "https://portal.unap.edu.pe/sites/default/files/2025-10/ROF-modificado-aprobado-por-RR-2212-2025-R-UNA.pdf",
+      "url_pdf": "https://portal.unap.edu.pe/sites/default/files/2025-10/ROF-modificado-aprobado-por-RR-2212-2025-R-UNA.pdf",
+      "pinpoint": "Arts. 53, 70–71; pp. impresas 53–54.",
+      "extracto_sustento": "Art. 70: OTI es órgano de apoyo dependiente de Rectorado responsable de sistemas informáticos, infraestructura de cómputo, gobierno digital y telecomunicaciones. Art. 71(l): vela por seguridad de la información automatizada.",
+      "limites": "Competencia formal, no prueba estado de sistemas/controles ni designación OSCD/CSIRT.",
+      "copia_local": "documentos/ROF-2025-RR-2212.pdf"
+    },
+    {
+      "id": "R03",
+      "titulo": "The NIST Cybersecurity Framework (CSF) 2.0, NIST CSWP 29",
+      "institucion": "National Institute of Standards and Technology (NIST)",
+      "fecha_publicacion": "2024-02-26",
+      "detalle_fecha": "Fecha indicada en el documento.",
+      "fecha_consulta": "2026-10-18",
+      "url": "https://www.nist.gov/cyberframework",
+      "url_pdf": "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf",
+      "pinpoint": "CSF Core, pp. 1–2 y 17–22.",
+      "extracto_sustento": "Define GOVERN, IDENTIFY, PROTECT, DETECT, RESPOND y RECOVER y sus categorías/subcategorías, incluidas las seleccionadas en el crosswalk candidato.",
+      "limites": "Marco voluntario de resultados; no certifica ni evalúa a la UNA.",
+      "copia_local": "documentos/NIST-CSF-2.0-CSWP-29.pdf"
+    },
+    {
+      "id": "R04",
+      "titulo": "Zero Trust Architecture, NIST SP 800-207",
+      "institucion": "NIST",
+      "fecha_publicacion": "2020-08-11",
+      "detalle_fecha": "Publicación final indicada por CSRC.",
+      "fecha_consulta": "2026-10-18",
+      "url": "https://csrc.nist.gov/pubs/sp/800/207/final",
+      "url_pdf": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-207.pdf",
+      "pinpoint": "Abstract; §§ 2–3 y 7.",
+      "extracto_sustento": "No hay confianza implícita basada solamente en ubicación de red o propiedad; la autenticación/autorización de sujeto y dispositivo precede a una sesión con recursos empresariales.",
+      "limites": "Arquitectura y principios, no evidencia de MFA o segmentación en UNAP.",
+      "copia_local": "documentos/NIST-SP-800-207.pdf"
+    },
+    {
+      "id": "R05",
+      "titulo": "Incident Response Recommendations and Considerations for Cybersecurity Risk Management: A CSF 2.0 Community Profile, NIST SP 800-61 Rev. 3",
+      "institucion": "NIST",
+      "fecha_publicacion": "2025-04-03",
+      "detalle_fecha": "Publicación final indicada por CSRC; sustituye SP 800-61 Rev. 2.",
+      "fecha_consulta": "2026-10-18",
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+      "url_pdf": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r3.pdf",
+      "pinpoint": "Abstract; §§ 2.1 y 2.2.",
+      "extracto_sustento": "Integra la preparación, respuesta, recuperación, comunicación y mejora de incidentes en las seis funciones CSF 2.0.",
+      "limites": "Recomendaciones organizacionales; no es un procedimiento aprobado de la UNA.",
+      "copia_local": "documentos/NIST-SP-800-61r3.pdf"
+    },
+    {
+      "id": "R06",
+      "titulo": "Threats - Microsoft Threat Modeling Tool (STRIDE)",
+      "institucion": "Microsoft Learn / Microsoft Security Development Lifecycle",
+      "fecha_publicacion": "2017-08-17",
+      "detalle_fecha": "Fecha original visible; actualización visible en metadatos: 2026-03-04.",
+      "fecha_consulta": "2026-10-18",
+      "url": "https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats",
+      "url_pdf": null,
+      "pinpoint": "Sección STRIDE model.",
+      "extracto_sustento": "Define Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service y Elevation of Privilege como categorías de amenaza.",
+      "limites": "Definición/taxonomía; no modela sistemas de la UNA.",
+      "copia_local": null
+    },
+    {
+      "id": "R07",
+      "titulo": "Cyber Kill Chain® / Gaining the Advantage: Applying Cyber Kill Chain® Methodology",
+      "institucion": "Lockheed Martin",
+      "fecha_publicacion": null,
+      "detalle_fecha": "La página y la guía consultadas no muestran fecha editorial identificable.",
+      "fecha_consulta": "2026-10-18",
+      "url": "https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html",
+      "url_pdf": "https://www.lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/Gaining_the_Advantage_Cyber_Kill_Chain.pdf",
+      "pinpoint": "Página institucional sobre Cyber Kill Chain y guía de aplicación.",
+      "extracto_sustento": "Lockheed Martin presenta siete fases: Reconnaissance, Weaponization, Delivery, Exploitation, Installation, Command & Control y Actions on Objectives.",
+      "limites": "Modelo conceptual de campaña, no registro forense ni evidencia de fases en la UNA.",
+      "copia_local": "documentos/LockheedMartin-Cyber-Kill-Chain-Guide.pdf"
+    },
+    {
+      "id": "R08",
+      "titulo": "ATT&CK Version History",
+      "institucion": "MITRE ATT&CK",
+      "fecha_publicacion": "2026-10-13",
+      "detalle_fecha": "ATT&CK v20.0 figura como actual desde el 13 de octubre de 2026; v19.2 terminó el 12 de octubre.",
+      "fecha_consulta": "2026-10-18",
+      "url": "https://attack.mitre.org/resources/versions/",
+      "url_pdf": null,
+      "pinpoint": "Current Version y Most Recent Versions.",
+      "extracto_sustento": "Historial oficial de versión y fechas de vigencia.",
+      "limites": "Cada advisory conserva la versión de ATT&CK que usó al publicarse.",
+      "copia_local": null
+    },
+    {
+      "id": "R09",
+      "titulo": "File and Directory Discovery (T1083), ATT&CK Enterprise v20.0",
+      "institucion": "MITRE ATT&CK",
+      "fecha_publicacion": "2017-05-31",
+      "detalle_fecha": "Fecha de creación indicada por MITRE; última modificación visible: 2026-09-11.",
+      "fecha_consulta": "2026-10-18",
+      "url": "https://attack.mitre.org/versions/v20/techniques/T1083/",
+      "url_pdf": null,
+      "pinpoint": "Description, ID y Tactic.",
+      "extracto_sustento": "Enumerar archivos/directorios o buscar en ubicaciones concretas; táctica Discovery.",
+      "limites": "Técnica genérica; requiere evidencia para asignarla a un caso local.",
+      "copia_local": null
+    },
+    {
+      "id": "R10",
+      "titulo": "Data from Local System (T1005), ATT&CK Enterprise v20.0",
+      "institucion": "MITRE ATT&CK",
+      "fecha_publicacion": "2017-05-31",
+      "detalle_fecha": "Fecha de creación indicada por MITRE; última modificación visible: 2026-09-11.",
+      "fecha_consulta": "2026-10-18",
+      "url": "https://attack.mitre.org/versions/v20/techniques/T1005/",
+      "url_pdf": null,
+      "pinpoint": "Description, ID y Tactic.",
+      "extracto_sustento": "Buscar fuentes locales, como sistemas de archivos/configuración/bases locales, para hallar datos antes de exfiltrarlos; Collection.",
+      "limites": "Técnica genérica; no presupone datos o infección en UNAP.",
+      "copia_local": null
+    },
+    {
+      "id": "R11",
+      "titulo": "Data Staged: Local Data Staging (T1074.001), ATT&CK Enterprise v20.0",
+      "institucion": "MITRE ATT&CK",
+      "fecha_publicacion": "2020-03-13",
+      "detalle_fecha": "Fecha de creación indicada por MITRE; última modificación visible: 2026-09-11.",
+      "fecha_consulta": "2026-10-18",
+      "url": "https://attack.mitre.org/versions/v20/techniques/T1074/001/",
+      "url_pdf": null,
+      "pinpoint": "Description, ID y Tactic.",
+      "extracto_sustento": "Almacenar datos recolectados en ubicación local antes de exfiltración; sub-técnica Collection.",
+      "limites": "No etiquetar actividad legítima como staging adversario sin contexto.",
+      "copia_local": null
+    },
+    {
+      "id": "R12",
+      "titulo": "Valid Accounts (T1078), ATT&CK Enterprise v20.0",
+      "institucion": "MITRE ATT&CK",
+      "fecha_publicacion": "2017-05-31",
+      "detalle_fecha": "Fecha de creación indicada por MITRE; última modificación visible: 2026-05-12.",
+      "fecha_consulta": "2026-10-18",
+      "url": "https://attack.mitre.org/versions/v20/techniques/T1078/",
+      "url_pdf": null,
+      "pinpoint": "Description, ID, sub-techniques y tactics.",
+      "extracto_sustento": "Abuso de credenciales de cuentas existentes; sub-técnicas default, domain, local y cloud.",
+      "limites": "Especificar subtécnica solo si la evidencia soporta tipo de cuenta.",
+      "copia_local": null
+    },
+    {
+      "id": "R13",
+      "titulo": "Phishing (T1566), ATT&CK Enterprise v20.0",
+      "institucion": "MITRE ATT&CK",
+      "fecha_publicacion": "2020-03-02",
+      "detalle_fecha": "Fecha de creación indicada por MITRE; última modificación visible: 2026-09-18.",
+      "fecha_consulta": "2026-10-18",
+      "url": "https://attack.mitre.org/versions/v20/techniques/T1566/",
+      "url_pdf": null,
+      "pinpoint": "Description, sub-techniques y mitigations.",
+      "extracto_sustento": "La técnica tiene sub-técnicas de adjunto, enlace, servicio y voz; MITRE asocia User Training como mitigación.",
+      "limites": "No mapear XSS/credential harvesting de R18 como phishing por defecto; se requiere evidencia de la técnica concreta.",
+      "copia_local": null
+    },
+    {
+      "id": "R14",
+      "titulo": "Decreto de Urgencia N.° 007-2020, que aprueba el Marco de Confianza Digital",
+      "institucion": "Presidencia del Consejo de Ministros",
+      "fecha_publicacion": "2020-01-09",
+      "detalle_fecha": "Fecha visible en la ficha oficial de gob.pe y en El Peruano.",
+      "fecha_consulta": "2026-10-18",
+      "url": "https://www.gob.pe/institucion/pcm/normas-legales/395322-007-2020",
+      "url_pdf": "https://cdn.www.gob.pe/uploads/document/file/2790485/Decreto%20de%20Urgencia%20N%C2%BA%20007-2020.pdf?v=1643322610",
+      "pinpoint": "Arts. 2, 7, 8 y 9.1, 9.3.",
+      "extracto_sustento": "Ámbito público, Centro Nacional de Seguridad Digital, notificación de incidentes por entidades públicas y SGSI/CSIRT cuando corresponda.",
+      "limites": "El DU no dispone por sí solo 48 h para toda clase de incidente.",
+      "copia_local": "documentos/DU-007-2020.pdf"
+    },
+    {
+      "id": "R15",
+      "titulo": "Decreto Supremo N.° 126-2025-PCM y Reglamento del DU 007-2020",
+      "institucion": "Presidencia del Consejo de Ministros / Secretaría de Gobierno y Transformación Digital",
+      "fecha_publicacion": "2025-11-04",
+      "detalle_fecha": "Fecha de publicación visible en la ficha oficial de gob.pe.",
+      "fecha_consulta": "2026-10-18",
+      "url": "https://www.gob.pe/institucion/pcm/normas-legales/7370829-126-2025-pcm",
+      "url_pdf": "https://cdn.www.gob.pe/uploads/document/file/8953630/7370829-1-ds-n-126-2025-pcm%282%29.pdf?v=1767577371",
+      "url_reglamento_pdf": "https://cdn.www.gob.pe/uploads/document/file/8993787/7370829-2-reglamento.pdf?v=1763064968",
+      "pinpoint": "Reglamento arts. 7.2, 9.2, 11.1, 31–34; art. 32.1–32.2.",
+      "extracto_sustento": "Implementación progresiva, evaluación anual de riesgo para entidades públicas, función del OSCD y plazos por clasificación; solo incidentes críticos tienen el máximo de 48 h al CNSD.",
+      "limites": "Validar canales/clasificación actual y nombramientos locales; no inferir que el Director de OTI sea OSCD.",
+      "copias_locales": ["documentos/DS-126-2025-PCM.pdf", "documentos/Reglamento-DU-007-2020-DS126-2025-PCM.pdf"]
+    },
+    {
+      "id": "R16",
+      "titulo": "Ley N.° 29733, Ley de Protección de Datos Personales",
+      "institucion": "Autoridad Nacional de Protección de Datos Personales / Ministerio de Justicia y Derechos Humanos",
+      "fecha_publicacion": "2011-07-03",
+      "detalle_fecha": "Fecha visible en la ficha de gob.pe.",
+      "fecha_consulta": "2026-10-18",
+      "url": "https://www.gob.pe/institucion/anpd/normas-legales/2018427-29733-2011",
+      "url_pdf": "https://cdn.www.gob.pe/uploads/document/file/2011398/Ley%20N%C2%BA%2029733%20-%20Ley%20de%20protecci%C3%B3n%20de%20datos%20personales.pdf.pdf?v=1683928275",
+      "pinpoint": "Arts. 9 y 16.",
+      "extracto_sustento": "Principio de seguridad y medidas técnicas, organizativas y legales para evitar alteración, pérdida, tratamiento/acceso no autorizado.",
+      "limites": "Identificar tipos de datos y roles de tratamiento en la situación concreta.",
+      "copia_local": "documentos/Ley-29733.pdf"
+    },
+    {
+      "id": "R17",
+      "titulo": "Decreto Supremo N.° 016-2024-JUS, Reglamento de la Ley N.° 29733",
+      "institucion": "Autoridad Nacional de Protección de Datos Personales / Ministerio de Justicia y Derechos Humanos",
+      "fecha_publicacion": "2024-11-30",
+      "detalle_fecha": "Fecha visible en la ficha oficial de gob.pe.",
+      "fecha_consulta": "2026-10-18",
+      "url": "https://www.gob.pe/institucion/anpd/normas-legales/6554453-16-2024-jus",
+      "url_pdf": "https://cdn.www.gob.pe/uploads/document/file/7756037/6554453-reglamento-de-la-ley-n-29733.pdf?v=1743779969",
+      "pinpoint": "Art. 34.1 y 34.3–34.5.",
+      "extracto_sustento": "48 h a ANPD bajo los umbrales del art. 34.1; comunicación a titular de datos bajo la condición del art. 34.3; excepción limitada del 34.4; CNSD adicional para entorno digital en 34.5.",
+      "limites": "No resumir como plazo universal; distinguir autoridad, personas afectadas y CNSD.",
+      "copia_local": "documentos/DS-016-2024-JUS-Reglamento-Ley29733.pdf"
+    },
+    {
+      "id": "R18",
+      "titulo": "Chinese Government-linked Cyber Threat Actors Combine Automated and Hands-on Hacking Tools to Steal Sensitive Data, AA26-281A",
+      "institucion": "CISA y agencias asociadas",
+      "fecha_publicacion": "2026-10-08",
+      "detalle_fecha": "Release Date y Original Publication visibles en el aviso.",
+      "fecha_consulta": "2026-10-18",
+      "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-281a",
+      "url_pdf": "https://www.cisa.gov/sites/default/files/2026-10/chinese-government-linked-cyber-threat-actors-combine-automated-and-hands-on-hacking-tools-to-steal-sensitive-data-508c.pdf",
+      "pinpoint": "Executive Summary; Initial Access and Execution; Persistence; Collection/Exfiltration; Appendix A; ATT&CK table.",
+      "extracto_sustento": "XSS/credential harvesting, password spraying, clientes VPN y exfiltración de correo/credenciales; educación aparece entre los sectores afectados descritos; el aviso cita ATT&CK version 19.",
+      "limites": "No identifica UNAP ni un incidente peruano. No indica puntuación individual numérica para el IOC utilizado.",
+      "copia_local": "documentos/CISA-AA26-281A.pdf"
+    },
+    {
+      "id": "R19",
+      "titulo": "CISA Urges Patching Critical Vulnerability in BeyondTrust Remote Support",
+      "institucion": "CISA",
+      "fecha_publicacion": "2026-10-16",
+      "detalle_fecha": "Release Date visible en alerta.",
+      "fecha_consulta": "2026-10-18",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/16/cisa-urges-patching-critical-vulnerability-beyondtrust-remote-support",
+      "url_pdf": null,
+      "pinpoint": "Summary, productos/versiones afectados, acciones CISA y KEV.",
+      "extracto_sustento": "CVE-2026-102764 es bypass crítico con explotación activa; afecta Remote Support 26.2.3 y anteriores; CISA anuncia parche y alta KEV el 2026-10-16.",
+      "limites": "Condicionar aplicación local a producto/modalidad/versión; el aviso no publica IOC ni afirma afectación a UNAP.",
+      "copia_local": null
+    },
+    {
+      "id": "R20",
+      "titulo": "#StopRansomware: Gunra Ransomware, AA26-222A",
+      "institucion": "CISA, FBI, DC3, NSA, USSS y KNPA",
+      "fecha_publicacion": "2026-08-10",
+      "detalle_fecha": "Release Date y Original Publication visibles en el aviso.",
+      "fecha_consulta": "2026-10-18",
+      "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-222a",
+      "url_pdf": "https://www.cisa.gov/sites/default/files/2026-08/aa26-222a-stopransomware-gunra-ransomware_508c.pdf",
+      "pinpoint": "Executive Summary; Mitigations; Table 2 IOCs; ATT&CK technical details/tables.",
+      "extracto_sustento": "RaaS y doble extorsión, sector academia citado; el aviso refiere ATT&CK v19.1, T1083/T1005/T1078.001/.002, y tabla de IP/dominios con first/last seen.",
+      "limites": "La fuente avisa que los IOC pueden ser históricos y deben verificarse antes de bloquear; no menciona la UNA.",
+      "copia_local": "documentos/CISA-AA26-222A-Gunra.pdf"
+    }
+  ],
+  "manifiesto_descargas": {
+    "metodo": "curl -fL desde URLs oficiales de las fuentes; consulta/descarga 2026-10-18.",
+    "limite_total_solicitado_bytes": 30000000,
+    "total_bytes": 16168712,
+    "total_mib_aproximado": 15.4,
+    "sha256_file": "documentos/SHA256SUMS",
+    "documentos": [
+      {"archivo": "documentos/CISA-AA26-222A-Gunra.pdf", "bytes": 1122719, "sha256": "2fa56304c97c2d8a68501afbcfd9adb3a5efc5bd56eebe4e454127baf26b1378", "fuente": "R20"},
+      {"archivo": "documentos/CISA-AA26-281A.pdf", "bytes": 1473390, "sha256": "f951f60a3f4482b787121f88dbb56f4802756beac55344b06447af27f4c3237d", "fuente": "R18"},
+      {"archivo": "documentos/DS-016-2024-JUS-Reglamento-Ley29733.pdf", "bytes": 5446488, "sha256": "5f04f2b9fb75b2a27ab68b36062bb65923bc78c0fe31558516c65846ea486041", "fuente": "R17"},
+      {"archivo": "documentos/DS-126-2025-PCM.pdf", "bytes": 962698, "sha256": "4f76d652a65b97194bb64c3eaeabb2c5d6646bba3cf324845e326809af91703d", "fuente": "R15"},
+      {"archivo": "documentos/DU-007-2020.pdf", "bytes": 261091, "sha256": "014864fad55d1aa0db4286df77e8a16825298db1649310af230158b09bc8cfb4", "fuente": "R14"},
+      {"archivo": "documentos/Ley-29733.pdf", "bytes": 258188, "sha256": "f45d432b337aa7965fdf38497b3f5c12dcd62a1107b3b13ff86687f0be15125d", "fuente": "R16"},
+      {"archivo": "documentos/LockheedMartin-Cyber-Kill-Chain-Guide.pdf", "bytes": 306409, "sha256": "839914098aac5100cd95661993d8e36c4bbd2e895b789a2624fbf344c7802d66", "fuente": "R07"},
+      {"archivo": "documentos/NIST-CSF-2.0-CSWP-29.pdf", "bytes": 1518858, "sha256": "3c31f46fee98cac0c4323453e5109291a213b4de7fef8c058af9bf67f717433c", "fuente": "R03"},
+      {"archivo": "documentos/NIST-SP-800-207.pdf", "bytes": 966908, "sha256": "0290d6ece24874287316f4bf430fef770aa4ec08a2227c8f2c1e5b2ff975e03d", "fuente": "R04"},
+      {"archivo": "documentos/NIST-SP-800-61r3.pdf", "bytes": 1040566, "sha256": "e5593d6bb85daecec7e8d9549400c7b3473bcc3f06e469c82218073afa7fba2d", "fuente": "R05"},
+      {"archivo": "documentos/Reglamento-DU-007-2020-DS126-2025-PCM.pdf", "bytes": 264658, "sha256": "417d1999d9afba75678670cffb38e7555b0707f45711f176c3a493e19c3f8108", "fuente": "R15"},
+      {"archivo": "documentos/ROF-2025-RR-2212.pdf", "bytes": 2546739, "sha256": "cbcad127b01924f208efa994451384917cfef15cbb30811203e9ff5527334bab", "fuente": "R02"}
+    ]
+  }
+}

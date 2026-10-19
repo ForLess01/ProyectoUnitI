@@ -1,0 +1,142 @@
+{
+  "description": "recorte de captura original para legibilidad; sin edición del contenido",
+  "coordinate_system": "pixels; origin at top-left; rectangle right/bottom edges are exclusive",
+  "operation": "Pillow crop only; no scaling, redraw, retouching, or text reconstruction",
+  "items": [
+    {
+      "description": "recorte de captura original para legibilidad; sin edición del contenido",
+      "original": "evidencias/laboratorio/capturas/term-01-auth_mfa.png",
+      "destination": "recursos/figuras/terminal/term-01-detalle.png",
+      "original_dimensions": {
+        "width": 1440,
+        "height": 980
+      },
+      "destination_dimensions": {
+        "width": 792,
+        "height": 562
+      },
+      "original_rect": {
+        "x": 463,
+        "y": 120,
+        "width": 792,
+        "height": 562
+      },
+      "destination_rect": {
+        "x": 0,
+        "y": 0,
+        "width": 792,
+        "height": 562
+      },
+      "original_sha256": "dae5c857e28e8837752ad12789680d609d075261319556fc5174d675b96e2a61",
+      "destination_sha256": "d17e60edb40938335766ce4edef60f966763982b2953a897ce1970854199825a"
+    },
+    {
+      "description": "recorte de captura original para legibilidad; sin edición del contenido",
+      "original": "evidencias/laboratorio/capturas/term-02-rbac_idor.png",
+      "destination": "recursos/figuras/terminal/term-02-detalle.png",
+      "original_dimensions": {
+        "width": 1440,
+        "height": 980
+      },
+      "destination_dimensions": {
+        "width": 792,
+        "height": 562
+      },
+      "original_rect": {
+        "x": 463,
+        "y": 120,
+        "width": 792,
+        "height": 562
+      },
+      "destination_rect": {
+        "x": 0,
+        "y": 0,
+        "width": 792,
+        "height": 562
+      },
+      "original_sha256": "0a99ff759d33b70f9e6b602ed633d176299935465c8885dde08177918e356d47",
+      "destination_sha256": "e4941d19ae547b71485c193ff4285cbdaa56ffdfa4738408293f4d2c4b44af5b"
+    },
+    {
+      "description": "recorte de captura original para legibilidad; sin edición del contenido",
+      "original": "evidencias/laboratorio/capturas/term-03-integrity_audit.png",
+      "destination": "recursos/figuras/terminal/term-03-detalle.png",
+      "original_dimensions": {
+        "width": 1440,
+        "height": 980
+      },
+      "destination_dimensions": {
+        "width": 792,
+        "height": 562
+      },
+      "original_rect": {
+        "x": 463,
+        "y": 120,
+        "width": 792,
+        "height": 562
+      },
+      "destination_rect": {
+        "x": 0,
+        "y": 0,
+        "width": 792,
+        "height": 562
+      },
+      "original_sha256": "2c6501c0ad29d405773040bfaf7534c69f6e90bed117da228e7e95b519b5ed16",
+      "destination_sha256": "4a0e05934e7a5cb29c8aa3c60fa668d821b3fa963c660cd9741dc6f111f505d8"
+    },
+    {
+      "description": "recorte de captura original para legibilidad; sin edición del contenido",
+      "original": "evidencias/laboratorio/capturas/term-04-size_revocation.png",
+      "destination": "recursos/figuras/terminal/term-04-detalle.png",
+      "original_dimensions": {
+        "width": 1440,
+        "height": 980
+      },
+      "destination_dimensions": {
+        "width": 792,
+        "height": 562
+      },
+      "original_rect": {
+        "x": 463,
+        "y": 120,
+        "width": 792,
+        "height": 562
+      },
+      "destination_rect": {
+        "x": 0,
+        "y": 0,
+        "width": 792,
+        "height": 562
+      },
+      "original_sha256": "662eca13247e5b34b7abffe357ab34f5b0a8fbc6a26cb54e2db24965bc8245f2",
+      "destination_sha256": "5f8b3e67476751c1bb87ec4f4d3e76e51028451b345faa6e7d4fd0bcc29cff4e"
+    },
+    {
+      "description": "recorte de captura original para legibilidad; sin edición del contenido",
+      "original": "evidencias/laboratorio/capturas/term-05-attack_backup.png",
+      "destination": "recursos/figuras/terminal/term-05-detalle.png",
+      "original_dimensions": {
+        "width": 1440,
+        "height": 980
+      },
+      "destination_dimensions": {
+        "width": 792,
+        "height": 722
+      },
+      "original_rect": {
+        "x": 463,
+        "y": 120,
+        "width": 792,
+        "height": 722
+      },
+      "destination_rect": {
+        "x": 0,
+        "y": 0,
+        "width": 792,
+        "height": 722
+      },
+      "original_sha256": "e97b0a095297154027f068c8a4c317dda21294505d247dae32434ab595021d5e",
+      "destination_sha256": "464ec558ed27004d390d32d7f3d6e6306cfb16db15c1f725cb9b4aa758208b3f"
+    }
+  ]
+}

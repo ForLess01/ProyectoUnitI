@@ -1,0 +1,240 @@
+{
+  "generated_at_utc": "2026-10-19T02:06:04.988Z",
+  "browser": {
+    "automation": "Playwright for Node.js",
+    "playwright_version": "1.64.1",
+    "launch_channel": "chrome",
+    "version": "154.0.8037.58"
+  },
+  "capture_settings": {
+    "viewport_css_pixels": {
+      "width": 1440,
+      "height": 1000
+    },
+    "device_scale_factor": 1.5,
+    "screenshot_mode": "viewport",
+    "authenticated": false,
+    "interactions_performed": [],
+    "navigation_scope": "requested unap.edu.pe public pages only; auth-like URL patterns are blocked through Chrome Network and directly requested external documents through page routing"
+  },
+  "run_error": null,
+  "captures": [
+    {
+      "id": "WEB01",
+      "label": "Portal institucional",
+      "requested_url": "https://portal.unap.edu.pe/",
+      "final_url": "https://portal.unap.edu.pe/",
+      "title": "UNAP",
+      "http_status": 200,
+      "observed_at_utc": "2026-10-19T02:05:58.955Z",
+      "screenshot": "WEB01.png",
+      "state": "captured",
+      "caption": "Portal institucional: vista pública de https://portal.unap.edu.pe/ (título HTML: “UNAP”).",
+      "demonstrates": "En 2026-10-19T02:05:58.955Z, la URL final respondió HTTP 200 y presentó esta vista pública sin iniciar sesión ni enviar formularios.",
+      "does_not_demonstrate": "No acredita disponibilidad sostenida, controles de acceso internos, seguridad del servidor, ni funcionamiento de enlaces o formularios no utilizados.",
+      "official_logo_asset": {
+        "state": "downloaded_unaltered",
+        "filename": "escudo_oficial.png",
+        "source_page": "https://portal.unap.edu.pe/",
+        "source_url": "https://portal.unap.edu.pe/sites/default/files/Escudo%20UNA%20Puno_0.png",
+        "http_status": 200,
+        "content_type": "image/png",
+        "byte_length": 6349,
+        "sha256": "d5a5f8fd11cd8637464571f7df637603f5d149d92631852182f3350371c700bd",
+        "source_context": "The visible official portal header references this image with alt text UNAP LOGO; the file is served from portal.unap.edu.pe.",
+        "license_context": "No separate license statement was observed alongside the image on the inspected page. Official-site provenance is recorded; no additional reuse license is asserted. Original response bytes were kept unchanged."
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "started_at_utc": "2026-10-19T02:05:56.019Z",
+          "final_url": "https://portal.unap.edu.pe/",
+          "http_status": 200,
+          "error": null,
+          "blocked_navigations": [
+            "https://www.youtube.com/embed/PV07JOEu-L0",
+            "https://www.youtube.com/embed/79Egv14uKbA",
+            "https://www.youtube.com/embed/7e3O0nDranY",
+            "https://www.youtube.com/embed/PV07JOEu-L0",
+            "https://www.youtube.com/embed/79Egv14uKbA",
+            "https://www.youtube.com/embed/7e3O0nDranY",
+            "https://www.youtube.com/embed/7e3O0nDranY",
+            "https://www.youtube.com/embed/79Egv14uKbA",
+            "https://www.youtube.com/embed/PV07JOEu-L0",
+            "https://www.youtube.com/embed/79Egv14uKbA",
+            "https://www.youtube.com/embed/7e3O0nDranY"
+          ],
+          "completed_at_utc": "2026-10-19T02:05:58.955Z"
+        }
+      ],
+      "body_text_length": 4993,
+      "logo_candidates": [
+        {
+          "src": "https://portal.unap.edu.pe/sites/default/files/Escudo%20UNA%20Puno_0.png",
+          "alt": "UNAP LOGO",
+          "width": 250,
+          "height": 100,
+          "visible": true
+        },
+        {
+          "src": "https://portal.unap.edu.pe/sites/default/files/inline-images/logo-portal-transparencia.png",
+          "alt": "link transparencia",
+          "width": 371,
+          "height": 158,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "WEB02",
+      "label": "Campus virtual",
+      "requested_url": "https://campus.unap.edu.pe/",
+      "final_url": "https://campus.unap.edu.pe/",
+      "title": "Campus Virtual - Home",
+      "http_status": 200,
+      "observed_at_utc": "2026-10-19T02:05:59.972Z",
+      "screenshot": "WEB02.png",
+      "state": "captured",
+      "caption": "Campus virtual: vista pública de https://campus.unap.edu.pe/ (título HTML: “Campus Virtual - Home”).",
+      "demonstrates": "En 2026-10-19T02:05:59.972Z, la URL final respondió HTTP 200 y presentó esta vista pública sin iniciar sesión ni enviar formularios.",
+      "does_not_demonstrate": "No acredita disponibilidad sostenida, controles de acceso internos, seguridad del servidor, ni funcionamiento de enlaces o formularios no utilizados.",
+      "official_logo_asset": null,
+      "attempts": [
+        {
+          "attempt": 1,
+          "started_at_utc": "2026-10-19T02:05:59.148Z",
+          "final_url": "https://campus.unap.edu.pe/",
+          "http_status": 200,
+          "error": null,
+          "blocked_navigations": [],
+          "completed_at_utc": "2026-10-19T02:05:59.972Z"
+        }
+      ],
+      "body_text_length": 460,
+      "logo_candidates": []
+    },
+    {
+      "id": "WEB03",
+      "label": "Trámites institucionales",
+      "requested_url": "https://tramites.unap.edu.pe/",
+      "final_url": "https://tramites.unap.edu.pe/",
+      "title": "Inicio | Trámites",
+      "http_status": 200,
+      "observed_at_utc": "2026-10-19T02:06:01.546Z",
+      "screenshot": "WEB03.png",
+      "state": "captured",
+      "caption": "Trámites institucionales: vista pública de https://tramites.unap.edu.pe/ (título HTML: “Inicio | Trámites”).",
+      "demonstrates": "En 2026-10-19T02:06:01.546Z, la URL final respondió HTTP 200 y presentó esta vista pública sin iniciar sesión ni enviar formularios.",
+      "does_not_demonstrate": "No acredita disponibilidad sostenida, controles de acceso internos, seguridad del servidor, ni funcionamiento de enlaces o formularios no utilizados.",
+      "official_logo_asset": null,
+      "attempts": [
+        {
+          "attempt": 1,
+          "started_at_utc": "2026-10-19T02:05:59.977Z",
+          "final_url": "https://tramites.unap.edu.pe/",
+          "http_status": 200,
+          "error": null,
+          "blocked_navigations": [],
+          "completed_at_utc": "2026-10-19T02:06:01.546Z"
+        }
+      ],
+      "body_text_length": 4275,
+      "logo_candidates": []
+    },
+    {
+      "id": "WEB04",
+      "label": "Aula virtual",
+      "requested_url": "https://aulavirtual2.unap.edu.pe/",
+      "final_url": "https://aulavirtual2.unap.edu.pe/",
+      "title": null,
+      "http_status": 502,
+      "observed_at_utc": "2026-10-19T02:06:02.162Z",
+      "screenshot": null,
+      "state": "failed_no_screenshot",
+      "caption": null,
+      "demonstrates": null,
+      "does_not_demonstrate": "No se generó una imagen porque la navegación no se verificó correctamente; revisar el error y el estado HTTP registrados.",
+      "official_logo_asset": null,
+      "attempts": [
+        {
+          "attempt": 1,
+          "started_at_utc": "2026-10-19T02:06:01.552Z",
+          "final_url": "https://aulavirtual2.unap.edu.pe/",
+          "http_status": 502,
+          "error": "Error: No se capturó imagen: respuesta HTTP 502.",
+          "blocked_navigations": [],
+          "completed_at_utc": "2026-10-19T02:06:01.921Z"
+        },
+        {
+          "attempt": 2,
+          "started_at_utc": "2026-10-19T02:06:01.925Z",
+          "final_url": "https://aulavirtual2.unap.edu.pe/",
+          "http_status": 502,
+          "error": "Error: No se capturó imagen: respuesta HTTP 502.",
+          "blocked_navigations": [],
+          "completed_at_utc": "2026-10-19T02:06:02.162Z"
+        }
+      ]
+    },
+    {
+      "id": "WEB05",
+      "label": "Reglamento de Organización y Funciones",
+      "requested_url": "https://portal.unap.edu.pe/documento/reglamento-de-organizacion-y-funciones",
+      "final_url": "https://portal.unap.edu.pe/documento/reglamento-de-organizacion-y-funciones",
+      "title": "UNAP",
+      "http_status": 200,
+      "observed_at_utc": "2026-10-19T02:06:03.597Z",
+      "screenshot": "WEB05.png",
+      "state": "captured",
+      "caption": "Reglamento de Organización y Funciones: vista pública de https://portal.unap.edu.pe/documento/reglamento-de-organizacion-y-funciones (título HTML: “UNAP”).",
+      "demonstrates": "En 2026-10-19T02:06:03.597Z, la URL final respondió HTTP 200 y presentó esta vista pública sin iniciar sesión ni enviar formularios.",
+      "does_not_demonstrate": "No acredita disponibilidad sostenida, controles de acceso internos, seguridad del servidor, ni funcionamiento de enlaces o formularios no utilizados.",
+      "official_logo_asset": null,
+      "attempts": [
+        {
+          "attempt": 1,
+          "started_at_utc": "2026-10-19T02:06:02.166Z",
+          "final_url": "https://portal.unap.edu.pe/documento/reglamento-de-organizacion-y-funciones",
+          "http_status": 200,
+          "error": null,
+          "blocked_navigations": [
+            "https://www.google.com/maps/embed"
+          ],
+          "completed_at_utc": "2026-10-19T02:06:03.597Z"
+        }
+      ],
+      "body_text_length": 1275,
+      "logo_candidates": []
+    },
+    {
+      "id": "WEB06",
+      "label": "Repositorio institucional",
+      "requested_url": "https://portal.unap.edu.pe/repositorio-institucional",
+      "final_url": "https://portal.unap.edu.pe/repositorio-institucional",
+      "title": "UNAP",
+      "http_status": 200,
+      "observed_at_utc": "2026-10-19T02:06:04.984Z",
+      "screenshot": "WEB06.png",
+      "state": "captured",
+      "caption": "Repositorio institucional: vista pública de https://portal.unap.edu.pe/repositorio-institucional (título HTML: “UNAP”).",
+      "demonstrates": "En 2026-10-19T02:06:04.984Z, la URL final respondió HTTP 200 y presentó esta vista pública sin iniciar sesión ni enviar formularios.",
+      "does_not_demonstrate": "No acredita disponibilidad sostenida, controles de acceso internos, seguridad del servidor, ni funcionamiento de enlaces o formularios no utilizados.",
+      "official_logo_asset": null,
+      "attempts": [
+        {
+          "attempt": 1,
+          "started_at_utc": "2026-10-19T02:06:03.603Z",
+          "final_url": "https://portal.unap.edu.pe/repositorio-institucional",
+          "http_status": 200,
+          "error": null,
+          "blocked_navigations": [
+            "https://www.google.com/maps/embed"
+          ],
+          "completed_at_utc": "2026-10-19T02:06:04.984Z"
+        }
+      ],
+      "body_text_length": 1074,
+      "logo_candidates": []
+    }
+  ]
+}

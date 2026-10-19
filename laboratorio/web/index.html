@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>Laboratorio local · Acceso MFA</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #172b2a;
+        --ink-soft: #526765;
+        --canvas: #e9eeea;
+        --paper: #fbfcf8;
+        --line: #d7e0da;
+        --deep: #183e3b;
+        --deep-2: #245550;
+        --mint: #c9e7d9;
+        --mint-ink: #174b39;
+        --amber: #f0d59a;
+        --amber-ink: #503d16;
+        --red: #f4d1c9;
+        --red-ink: #702f25;
+        --focus: #187a69;
+        font-family: "Avenir Next", "Segoe UI", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        min-width: 320px;
+        min-height: 100vh;
+        margin: 0;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 7% 10%, rgba(201, 231, 217, 0.7), transparent 27rem),
+          var(--canvas);
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 26px 32px 18px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--deep);
+        font-size: 12px;
+        font-weight: 750;
+        letter-spacing: 0.12em;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        border-radius: 10px 10px 10px 3px;
+        color: #e8f5ef;
+        background: var(--deep);
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 13px;
+        letter-spacing: -0.08em;
+      }
+
+      .local-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 11px;
+        border: 1px solid #c7d6cd;
+        border-radius: 999px;
+        color: #36534d;
+        background: rgba(251, 252, 248, 0.72);
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 11px;
+      }
+
+      .local-tag::before {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #3c8e69;
+        content: "";
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(360px, 0.93fr);
+        gap: 22px;
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 16px 32px 44px;
+      }
+
+      .intro {
+        position: relative;
+        display: flex;
+        min-height: 590px;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+        padding: 42px;
+        border-radius: 22px;
+        color: #f0f6f1;
+        background:
+          linear-gradient(150deg, rgba(28, 75, 70, 0.2), transparent 54%),
+          var(--deep);
+      }
+
+      .intro::after {
+        position: absolute;
+        right: -90px;
+        bottom: 78px;
+        width: 310px;
+        height: 310px;
+        border: 1px solid rgba(200, 231, 217, 0.19);
+        border-radius: 50%;
+        box-shadow: 0 0 0 38px rgba(200, 231, 217, 0.035), 0 0 0 78px rgba(200, 231, 217, 0.025);
+        content: "";
+        pointer-events: none;
+      }
+
+      .eyebrow {
+        color: #b2d7c8;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 500px;
+        margin: 25px 0 17px;
+        font-size: clamp(38px, 5vw, 62px);
+        font-weight: 650;
+        letter-spacing: -0.055em;
+        line-height: 1.04;
+        text-wrap: balance;
+      }
+
+      .intro-copy {
+        max-width: 435px;
+        color: #d2e3dc;
+        font-size: 15px;
+        line-height: 1.7;
+        text-wrap: pretty;
+      }
+
+      .scope-note {
+        position: relative;
+        z-index: 1;
+        max-width: 455px;
+        padding: 17px 18px;
+        border: 1px solid rgba(215, 238, 226, 0.2);
+        border-radius: 13px;
+        background: rgba(7, 29, 27, 0.2);
+      }
+
+      .scope-note strong {
+        display: block;
+        margin-bottom: 5px;
+        color: #f2f7f3;
+        font-size: 13px;
+      }
+
+      .scope-note p {
+        margin: 0;
+        color: #bdd4cb;
+        font-size: 12px;
+        line-height: 1.55;
+      }
+
+      .access-panel {
+        align-self: center;
+        width: 100%;
+        padding: 34px;
+        border: 1px solid rgba(33, 70, 61, 0.07);
+        border-radius: 22px;
+        background: var(--paper);
+        box-shadow: 0 22px 55px rgba(32, 57, 49, 0.08);
+      }
+
+      .panel-overline {
+        margin: 0 0 9px;
+        color: #628078;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 11px;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 28px;
+        font-weight: 650;
+        letter-spacing: -0.035em;
+        line-height: 1.2;
+        text-wrap: balance;
+      }
+
+      .panel-copy {
+        margin: 11px 0 27px;
+        color: var(--ink-soft);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      form { display: grid; gap: 17px; }
+
+      .field { display: grid; gap: 7px; }
+
+      label {
+        color: #314b47;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      input {
+        width: 100%;
+        min-height: 47px;
+        padding: 0 13px;
+        border: 1px solid #cbd7d0;
+        border-radius: 9px;
+        outline: none;
+        color: var(--ink);
+        background: #fff;
+        font: inherit;
+        font-size: 14px;
+        transition: border-color 160ms ease, box-shadow 160ms ease;
+      }
+
+      input::placeholder { color: #93a39d; }
+      input:focus-visible { border-color: var(--focus); box-shadow: 0 0 0 3px rgba(24, 122, 105, 0.15); }
+
+      button {
+        min-height: 47px;
+        padding: 0 17px;
+        border: 0;
+        border-radius: 9px;
+        color: #f4f8f5;
+        background: var(--deep);
+        cursor: pointer;
+        font: inherit;
+        font-size: 13px;
+        font-weight: 700;
+        transition: background-color 160ms ease, transform 100ms ease, opacity 160ms ease;
+      }
+
+      button:hover:not(:disabled) { background: var(--deep-2); }
+      button:active:not(:disabled) { transform: scale(0.985); }
+      button:focus-visible { outline: 3px solid rgba(24, 122, 105, 0.32); outline-offset: 2px; }
+      button:disabled { cursor: not-allowed; opacity: 0.57; }
+
+      .button-secondary {
+        color: var(--deep);
+        background: #e3eee8;
+      }
+
+      .button-secondary:hover:not(:disabled) { background: #d7e9df; }
+
+      .status {
+        min-height: 44px;
+        margin: 19px 0 0;
+        padding: 12px 13px;
+        border: 1px solid #d9e3dd;
+        border-radius: 9px;
+        color: #47615a;
+        background: #f1f5f1;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .status[data-state="pending"] { border-color: #e5d6b2; color: var(--amber-ink); background: #fbf4e5; }
+      .status[data-state="success"] { border-color: #c8e1d3; color: var(--mint-ink); background: #edf7f0; }
+      .status[data-state="error"] { border-color: #ebc9bf; color: var(--red-ink); background: #fcf0ec; }
+
+      .mfa-panel[hidden], .dashboard[hidden], form[hidden] { display: none; }
+
+      .verification-mark {
+        display: grid;
+        width: 48px;
+        height: 48px;
+        margin: 26px 0 17px;
+        place-items: center;
+        border-radius: 14px;
+        color: var(--mint-ink);
+        background: #e1f0e7;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 17px;
+        font-weight: 700;
+      }
+
+      .mfa-panel h3 {
+        margin: 0 0 8px;
+        font-size: 18px;
+        letter-spacing: -0.02em;
+      }
+
+      .mfa-panel p, .dashboard-copy {
+        color: var(--ink-soft);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .otp-input { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: 0.22em; }
+
+      .identity-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin: 24px 0 18px;
+        padding: 15px;
+        border: 1px solid var(--line);
+        border-radius: 11px;
+        background: #f5f8f4;
+      }
+
+      .identity-name { display: grid; gap: 4px; }
+      .identity-name strong { font-size: 13px; }
+      .identity-name span { color: var(--ink-soft); font-size: 11px; }
+
+      .role-tag {
+        padding: 6px 9px;
+        border: 1px solid #bed5c7;
+        border-radius: 999px;
+        color: #285541;
+        background: #e9f4ec;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 10px;
+        font-weight: 700;
+      }
+
+      .fixture-record {
+        margin: 0 0 18px;
+        padding: 16px;
+        border-left: 3px solid #6ca88b;
+        border-radius: 0 9px 9px 0;
+        color: #31534b;
+        background: #f2f7f2;
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .fixture-record strong { display: block; margin-bottom: 5px; color: #23463d; }
+      .action-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+      .action-grid button { min-height: 43px; font-size: 12px; }
+
+      .footnote {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 20px;
+        padding-top: 15px;
+        border-top: 1px solid var(--line);
+        color: #70817b;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 10px;
+      }
+
+      @media (max-width: 860px) {
+        main { grid-template-columns: minmax(0, 1fr); max-width: 680px; }
+        .intro { min-height: 370px; padding: 32px; }
+        .access-panel { padding: 28px; }
+      }
+
+      @media (max-width: 520px) {
+        .topbar { padding: 17px 18px 12px; }
+        main { gap: 14px; padding: 10px 18px 28px; }
+        .intro { min-height: 310px; padding: 25px; border-radius: 17px; }
+        h1 { margin-top: 19px; font-size: 42px; }
+        .intro-copy { font-size: 13px; }
+        .access-panel { padding: 23px; border-radius: 17px; }
+        .local-tag { padding: 7px 8px; font-size: 9px; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">L/01</span><span>LABORATORIO · CONTROL DE ACCESO</span></div>
+      <span class="local-tag">SOLO ENTORNO LOCAL</span>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="intro-title">
+        <div>
+          <p class="eyebrow">Práctica defensiva · ejecución controlada</p>
+          <h1 id="intro-title">Verificar antes de confiar.</h1>
+          <p class="intro-copy">Un entorno mínimo para observar autenticación multifactor, privilegios y revocación de sesión sobre registros enteramente ficticios.</p>
+        </div>
+        <aside class="scope-note" aria-label="Límites del laboratorio">
+          <strong>Alcance del ejercicio</strong>
+          <p>Servicio local, datos sintéticos y solicitudes acotadas. No representa sistemas, usuarios ni hallazgos de una institución real.</p>
+        </aside>
+      </section>
+
+      <section class="access-panel" aria-labelledby="panel-title">
+        <p class="panel-overline">01 / Identidad</p>
+        <h2 id="panel-title">Acceso de laboratorio</h2>
+        <p class="panel-copy">La contraseña inicia una verificación; el acceso sólo se concede después de validar el código temporal.</p>
+
+        <form id="login-form" autocomplete="off">
+          <div class="field">
+            <label for="username">Usuario de prueba</label>
+            <input id="username" name="username" autocomplete="off" autocapitalize="none" spellcheck="false" required />
+          </div>
+          <div class="field">
+            <label for="password">Contraseña de prueba</label>
+            <input id="password" name="password" type="password" autocomplete="new-password" required />
+          </div>
+          <button id="login-button" type="submit">Continuar con MFA <span aria-hidden="true">→</span></button>
+        </form>
+
+        <section id="mfa-panel" class="mfa-panel" aria-labelledby="mfa-title" hidden>
+          <div class="verification-mark" aria-hidden="true">02</div>
+          <h3 id="mfa-title">Verificación adicional</h3>
+          <p>La contraseña fue aceptada, pero el acceso sigue denegado hasta validar el código temporal.</p>
+          <form id="mfa-form" autocomplete="off">
+            <div class="field">
+              <label for="totp-code">Código de un solo uso</label>
+              <input id="totp-code" class="otp-input" name="totp-code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="one-time-code" required />
+            </div>
+            <button id="mfa-button" type="submit">Verificar código <span aria-hidden="true">→</span></button>
+          </form>
+        </section>
+
+        <section id="dashboard" class="dashboard" aria-labelledby="dashboard-title" hidden>
+          <div class="identity-row">
+            <div class="identity-name"><strong id="display-name">Sesión de prueba</strong><span>Identidad verificada con MFA</span></div>
+            <span id="role-tag" class="role-tag">READER</span>
+          </div>
+          <div class="fixture-record" id="fixture-record">
+            <strong id="dashboard-title">Registro ficticio</strong>
+            <span id="record-content">Consultando un objeto de prueba…</span>
+          </div>
+          <div class="action-grid">
+            <button id="admin-button" class="button-secondary" type="button">Solicitar panel admin</button>
+            <button id="revoke-button" type="button">Revocar sesión</button>
+          </div>
+          <p id="dashboard-copy" class="dashboard-copy">Las respuestas del servidor se muestran sin exponer cookies ni credenciales.</p>
+        </section>
+
+        <p id="status" class="status" role="status" aria-live="polite" data-state="idle">Esperando una acción. Los campos están vacíos.</p>
+        <div class="footnote"><span>DATOS: FIXTURES SINTÉTICOS</span><span>HTTP · LOOPBACK</span></div>
+      </section>
+    </main>
+
+    <script>
+      (() => {
+        const loginForm = document.querySelector("#login-form");
+        const mfaPanel = document.querySelector("#mfa-panel");
+        const mfaForm = document.querySelector("#mfa-form");
+        const dashboard = document.querySelector("#dashboard");
+        const status = document.querySelector("#status");
+        const usernameField = document.querySelector("#username");
+        const passwordField = document.querySelector("#password");
+        const codeField = document.querySelector("#totp-code");
+        const loginButton = document.querySelector("#login-button");
+        const mfaButton = document.querySelector("#mfa-button");
+        let challengeId = null;
+
+        function setStatus(message, state = "idle") {
+          status.textContent = message;
+          status.dataset.state = state;
+        }
+
+        async function requestJson(path, options = {}) {
+          const response = await fetch(path, {
+            ...options,
+            headers: { "Content-Type": "application/json", ...(options.headers || {}) },
+            credentials: "same-origin",
+          });
+          let body = {};
+          try { body = await response.json(); } catch { body = {}; }
+          return { response, body };
+        }
+
+        function showDashboard(user) {
+          loginForm.hidden = true;
+          mfaPanel.hidden = true;
+          dashboard.hidden = false;
+          document.querySelector("#display-name").textContent = user.display_name;
+          document.querySelector("#role-tag").textContent = user.role.toUpperCase();
+          setStatus("HTTP 200 — Sesión autenticada; acceso permitido.", "success");
+          requestJson("/api/objects/record-A", { method: "GET", headers: {} }).then(({ response, body }) => {
+            document.querySelector("#dashboard-title").textContent = response.ok ? body.title : "Objeto no disponible";
+            document.querySelector("#record-content").textContent = response.ok ? body.content : "La solicitud requiere autorización.";
+          }).catch(() => {
+            document.querySelector("#record-content").textContent = "No se pudo consultar el servicio local.";
+          });
+        }
+
+        loginForm.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          loginButton.disabled = true;
+          loginButton.textContent = "Verificando…";
+          const username = usernameField.value.trim();
+          const password = passwordField.value;
+          passwordField.value = "";
+          setStatus("Enviando credenciales de prueba al servicio local…", "pending");
+          try {
+            const { response, body } = await requestJson("/api/login", {
+              method: "POST",
+              body: JSON.stringify({ username, password }),
+            });
+            if (response.status === 401 && body.code === "mfa_required") {
+              challengeId = body.challenge_id;
+              mfaPanel.hidden = false;
+              loginForm.hidden = true;
+              setStatus("HTTP 401 — MFA requerido; todavía no hay sesión ni acceso concedido.", "pending");
+              codeField.focus();
+            } else {
+              setStatus("HTTP " + response.status + " — Credenciales no aceptadas.", "error");
+            }
+          } catch {
+            setStatus("Error de red: el servicio local no respondió. Podés volver a intentar.", "error");
+          } finally {
+            passwordField.value = "";
+            loginButton.disabled = false;
+            loginButton.innerHTML = 'Continuar con MFA <span aria-hidden="true">→</span>';
+          }
+        });
+
+        mfaForm.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          mfaButton.disabled = true;
+          mfaButton.textContent = "Validando…";
+          const code = codeField.value;
+          codeField.value = "";
+          setStatus("Validando el código temporal…", "pending");
+          try {
+            const { response, body } = await requestJson("/api/mfa", {
+              method: "POST",
+              body: JSON.stringify({ challenge_id: challengeId, code }),
+            });
+            codeField.value = "";
+            challengeId = null;
+            if (response.ok && body.status === "authenticated") {
+              showDashboard(body.user);
+            } else {
+              setStatus("HTTP " + response.status + " — El código no fue aceptado.", "error");
+            }
+          } catch {
+            setStatus("Error de red al verificar MFA. El acceso sigue denegado.", "error");
+          } finally {
+            codeField.value = "";
+            mfaButton.disabled = false;
+            mfaButton.innerHTML = 'Verificar código <span aria-hidden="true">→</span>';
+          }
+        });
+
+        document.querySelector("#admin-button").addEventListener("click", async (event) => {
+          const button = event.currentTarget;
+          button.disabled = true;
+          try {
+            const { response, body } = await requestJson("/api/admin", { method: "GET", headers: {} });
+            setStatus(
+              response.status === 403
+                ? "HTTP 403 — Acceso denegado: el rol lector no puede abrir el panel admin."
+                : "HTTP " + response.status + " — " + (body.message || body.code || "Respuesta recibida."),
+              response.status === 403 ? "error" : "success",
+            );
+          } catch {
+            setStatus("Error de red: no se pudo consultar el panel.", "error");
+          } finally {
+            button.disabled = false;
+          }
+        });
+
+        document.querySelector("#revoke-button").addEventListener("click", async (event) => {
+          const button = event.currentTarget;
+          button.disabled = true;
+          try {
+            const revoked = await requestJson("/api/session/revoke", { method: "POST", body: "{}" });
+            const check = await requestJson("/api/me", { method: "GET", headers: {} });
+            if (revoked.response.ok && check.response.status === 401) {
+              setStatus("HTTP 401 — Sesión revocada; la reutilización ya no concede acceso.", "error");
+              document.querySelector("#dashboard-copy").textContent = "La siguiente solicitud fue rechazada después de revocar la sesión.";
+              document.querySelector("#role-tag").textContent = "REVOKED";
+            } else {
+              setStatus("Revocación no confirmada por la siguiente solicitud.", "error");
+              button.disabled = false;
+            }
+          } catch {
+            setStatus("Error de red al revocar la sesión.", "error");
+            button.disabled = false;
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

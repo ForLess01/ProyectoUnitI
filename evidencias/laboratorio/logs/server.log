@@ -1,0 +1,1 @@
+LOCAL_LAB_READY host=127.0.0.1 port=8765 database=ephemeral-or-fixture-only

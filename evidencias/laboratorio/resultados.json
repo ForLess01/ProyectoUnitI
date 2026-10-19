@@ -1,0 +1,912 @@
+{
+  "generated_at_utc": "2026-10-19T03:15:27.863Z",
+  "scope": "local_synthetic_fixture_laboratory",
+  "institutional_data_used": false,
+  "institutional_findings_claimed": false,
+  "run_status": "PASS",
+  "completeness": {
+    "functional_cases_expected": 13,
+    "functional_cases_observed": 13,
+    "functional_case_ids_complete": true,
+    "browser_cases_expected": 4,
+    "browser_cases_observed": 4,
+    "browser_cases_complete": true,
+    "screenshots_expected": 9,
+    "screenshots_observed": 9,
+    "screenshot_ids_complete": true,
+    "all_cases_passed": true,
+    "docker_internal_network_verified": true,
+    "runtime_startup_identity_recorded": true,
+    "capture_helper_source_hash_matches_startup": true,
+    "source_manifest_created": true,
+    "blocked_external_browser_requests": true,
+    "evidence_secret_scan_violations": []
+  },
+  "stack": {
+    "python": "3.12.3",
+    "sqlite": "3.45.1",
+    "python_platform": "Linux",
+    "docker_server": "29.5.3",
+    "docker_network": "proyectouniti-lab-isolated",
+    "docker_network_internal": true,
+    "container_image": "marfil-pdf-test:latest",
+    "container_image_id": "sha256:4180697e2ec643227d99f19ffd95f4315e496e5db5192b9ce328a96ce6214310",
+    "container_image_source": "preexisting-local-image",
+    "container_manifest_digest": "none",
+    "node": "v24.14.1",
+    "playwright_core": "1.64.1",
+    "browser": "Google Chrome",
+    "browser_version": "155.0.8059.82",
+    "browser_headless": false,
+    "host_platform": "darwin arm64 27.0.0"
+  },
+  "source_manifest": {
+    "path": "evidencias/laboratorio/source_manifest.sha256",
+    "file_count": 16,
+    "manifest_sha256": "15b57973a4a44d5b338a7ffbe4545f92e80d39fae9011a3bfe4e541b69c05ab5",
+    "capture_helper_sha256": "b39dcb5f605483a25965d13d0eed6c3f12152b1200665e361a3752743b9fbeec",
+    "scope": "laboratorio source, fixtures, UI, test/capture scripts, package lock, and herramientas/lab_capture.py; excludes node_modules"
+  },
+  "official_python_alternative": {
+    "reference": "docker.io/library/python:3.12.13-slim@sha256:229a2c5bfa27522db7815ea81f9bed70af17ccb9de9fc7ad142b1877b5830d36",
+    "multi_platform_index_digest": "sha256:229a2c5bfa27522db7815ea81f9bed70af17ccb9de9fc7ad142b1877b5830d36",
+    "linux_arm64_manifest_digest": "sha256:adbc7c33e0abc183557d1d14ce5eb5d261aaadff5451c81a8db636b3ebefcdf6",
+    "linux_arm64_image_config_id": "sha256:0445c02b019cf3f9d61bac90acaac8e2d37ae6991b3384bd9d75fec93bcdfe98",
+    "version": "Python 3.12.13 slim, Debian Trixie",
+    "metadata_query": "docker manifest inspect --verbose docker.io/library/python:3.12.13-slim",
+    "metadata_query_downloaded_layers": false,
+    "executed_for_captured_evidence": false
+  },
+  "resource_limits": {
+    "container_cpu": "1 CPU",
+    "container_memory_bytes": 268435456,
+    "container_pids_limit": 32,
+    "cpu_seconds_ulimit": 90,
+    "file_size_ulimit_bytes": 1048576,
+    "open_files_ulimit": 64,
+    "tmpfs_bytes": 33554432,
+    "container_root_filesystem_read_only": true,
+    "laboratorio_mount_read_only": true,
+    "evidence_mount_write_scope": "/outputs -> evidencias/laboratorio only"
+  },
+  "network_scope": {
+    "docker_network_internal": true,
+    "service_bind_inside_container": "127.0.0.1:8765",
+    "host_loopback_proxy": "127.0.0.1:18765",
+    "pty_capture_server": "127.0.0.1:18766",
+    "docker_published_ports": [],
+    "external_test_targets": 0,
+    "blocked_external_browser_requests": {
+      "app_browser_context": 0,
+      "terminal_browser_context": 0
+    }
+  },
+  "commands": {
+    "network_create": "docker network create --internal proyectouniti-lab-isolated",
+    "server_start": "LAB_RUNTIME_IMAGE=marfil-pdf-test:latest LAB_RUNTIME_IMAGE_ID=sha256:4180697e2ec643227d99f19ffd95f4315e496e5db5192b9ce328a96ce6214310 LAB_RUNTIME_IMAGE_SOURCE=preexisting-local-image python3 herramientas/lab_capture.py --start-container",
+    "docker_run_command_argv": [
+      "docker",
+      "run",
+      "--detach",
+      "--pull=never",
+      "--rm",
+      "--name",
+      "proyectouniti-lab-demo",
+      "--network",
+      "proyectouniti-lab-isolated",
+      "--read-only",
+      "--cpus=1",
+      "--memory=256m",
+      "--pids-limit=32",
+      "--ulimit",
+      "nofile=64:64",
+      "--ulimit",
+      "fsize=1048576:1048576",
+      "--ulimit",
+      "cpu=90:90",
+      "--cap-drop=ALL",
+      "--security-opt=no-new-privileges",
+      "--tmpfs",
+      "/tmp:rw,noexec,nosuid,size=32m,mode=1777",
+      "--user",
+      "501:20",
+      "--mount",
+      "type=bind,src=/Users/rendoaltar/Developer/topics/ProyectoUnitI/laboratorio,dst=/app/laboratorio,readonly",
+      "--mount",
+      "type=bind,src=/Users/rendoaltar/Developer/topics/ProyectoUnitI/evidencias/laboratorio,dst=/outputs",
+      "--workdir",
+      "/app",
+      "--entrypoint=/usr/bin/env",
+      "marfil-pdf-test:latest",
+      "-i",
+      "PATH=/usr/local/bin:/usr/bin:/bin",
+      "HOME=/tmp",
+      "TMPDIR=/tmp",
+      "PYTHONPATH=/app",
+      "PYTHONDONTWRITEBYTECODE=1",
+      "LAB_OUTPUT_ROOT=/outputs",
+      "LAB_DOCKER_NETWORK=proyectouniti-lab-isolated",
+      "LAB_DOCKER_NETWORK_INTERNAL=true",
+      "LAB_RUNTIME_IMAGE=marfil-pdf-test:latest",
+      "LAB_RUNTIME_IMAGE_ID=sha256:4180697e2ec643227d99f19ffd95f4315e496e5db5192b9ce328a96ce6214310",
+      "LAB_RUNTIME_IMAGE_SOURCE=preexisting-local-image",
+      "LAB_RUNTIME_MANIFEST_DIGEST=none",
+      "LAB_CAPTURE_SOURCE_SHA256=b39dcb5f605483a25965d13d0eed6c3f12152b1200665e361a3752743b9fbeec",
+      "LAB_START_COMMAND=LAB_RUNTIME_IMAGE=marfil-pdf-test:latest LAB_RUNTIME_IMAGE_ID=sha256:4180697e2ec643227d99f19ffd95f4315e496e5db5192b9ce328a96ce6214310 LAB_RUNTIME_IMAGE_SOURCE=preexisting-local-image python3 herramientas/lab_capture.py --start-container",
+      "LAB_DOCKER_SERVER_VERSION=29.5.3",
+      "TZ=UTC",
+      "python3",
+      "-m",
+      "laboratorio.app",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "8765",
+      "--database",
+      "/tmp/lab.sqlite3",
+      "--runtime-dir",
+      "/outputs/runtime"
+    ],
+    "docker_run_command_shell": "docker run --detach --pull=never --rm --name proyectouniti-lab-demo --network proyectouniti-lab-isolated --read-only --cpus=1 --memory=256m --pids-limit=32 --ulimit nofile=64:64 --ulimit fsize=1048576:1048576 --ulimit cpu=90:90 --cap-drop=ALL --security-opt=no-new-privileges --tmpfs /tmp:rw,noexec,nosuid,size=32m,mode=1777 --user 501:20 --mount type=bind,src=/Users/rendoaltar/Developer/topics/ProyectoUnitI/laboratorio,dst=/app/laboratorio,readonly --mount type=bind,src=/Users/rendoaltar/Developer/topics/ProyectoUnitI/evidencias/laboratorio,dst=/outputs --workdir /app --entrypoint=/usr/bin/env marfil-pdf-test:latest -i PATH=/usr/local/bin:/usr/bin:/bin HOME=/tmp TMPDIR=/tmp PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 LAB_OUTPUT_ROOT=/outputs LAB_DOCKER_NETWORK=proyectouniti-lab-isolated LAB_DOCKER_NETWORK_INTERNAL=true LAB_RUNTIME_IMAGE=marfil-pdf-test:latest LAB_RUNTIME_IMAGE_ID=sha256:4180697e2ec643227d99f19ffd95f4315e496e5db5192b9ce328a96ce6214310 LAB_RUNTIME_IMAGE_SOURCE=preexisting-local-image LAB_RUNTIME_MANIFEST_DIGEST=none LAB_CAPTURE_SOURCE_SHA256=b39dcb5f605483a25965d13d0eed6c3f12152b1200665e361a3752743b9fbeec 'LAB_START_COMMAND=LAB_RUNTIME_IMAGE=marfil-pdf-test:latest LAB_RUNTIME_IMAGE_ID=sha256:4180697e2ec643227d99f19ffd95f4315e496e5db5192b9ce328a96ce6214310 LAB_RUNTIME_IMAGE_SOURCE=preexisting-local-image python3 herramientas/lab_capture.py --start-container' LAB_DOCKER_SERVER_VERSION=29.5.3 TZ=UTC python3 -m laboratorio.app --host 127.0.0.1 --port 8765 --database /tmp/lab.sqlite3 --runtime-dir /outputs/runtime",
+    "runtime_image_id_check": "docker image inspect --format '{{.Id}}' \"$LAB_RUNTIME_IMAGE\"",
+    "terminal_groups": {
+      "auth_mfa": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group auth_mfa --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "rbac_idor": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group rbac_idor --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "integrity_audit": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group integrity_audit --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "size_revocation": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group size_revocation --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "attack_backup": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group attack_backup --artifact-dir /outputs --runtime-dir /outputs/runtime"
+    },
+    "browser_and_terminal_capture": "node laboratorio/browser-tools/capture.js --base-url http://127.0.0.1:18765 --terminal-url http://127.0.0.1:18766 --output-dir evidencias/laboratorio/capturas",
+    "browser_capture_reproducible_form": "env -i PATH=\"$PATH\" HOME=\"$HOME\" DOCKER_CONTEXT=desktop-linux node laboratorio/browser-tools/capture.js --base-url http://127.0.0.1:18765 --terminal-url http://127.0.0.1:18766 --output-dir evidencias/laboratorio/capturas",
+    "server_log_capture": "python3 herramientas/lab_capture.py --collect-server-log",
+    "server_stop_and_network_remove": "docker stop proyectouniti-lab-demo && docker network rm proyectouniti-lab-isolated"
+  },
+  "cases": [
+    {
+      "case_id": "AUTH-01",
+      "group": "auth_mfa",
+      "case": "credencial incorrecta denegada",
+      "expected": "Invalid fixture password returns HTTP 401 invalid_credentials and creates no session.",
+      "observed": {
+        "status": 401,
+        "code": "invalid_credentials",
+        "request_id_present": true,
+        "session_created": false
+      },
+      "pass": true,
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group auth_mfa --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:44.323Z",
+      "finished_utc": "2026-10-19T03:14:44.832Z",
+      "duration_ms": 508.66,
+      "metrics": {
+        "http_requests": 1,
+        "request_payload_bytes_sent": 60,
+        "response_body_bytes_received": 78,
+        "request_duration_ms_total": 27.262,
+        "max_request_duration_ms": 27.262
+      }
+    },
+    {
+      "case_id": "AUTH-02",
+      "group": "auth_mfa",
+      "case": "contraseña correcta sin TOTP denegada",
+      "expected": "A correct password without TOTP returns HTTP 401 mfa_required and grants no access.",
+      "observed": {
+        "status": 401,
+        "code": "mfa_required",
+        "access_granted": false,
+        "session_created": false
+      },
+      "pass": true,
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group auth_mfa --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:44.832Z",
+      "finished_utc": "2026-10-19T03:14:45.337Z",
+      "duration_ms": 504.476,
+      "metrics": {
+        "http_requests": 1,
+        "request_payload_bytes_sent": 52,
+        "response_body_bytes_received": 155,
+        "request_duration_ms_total": 24.714,
+        "max_request_duration_ms": 24.714
+      }
+    },
+    {
+      "case_id": "AUTH-03",
+      "group": "auth_mfa",
+      "case": "TOTP RFC 6238 válido permite acceso",
+      "expected": "Valid RFC 6238 TOTP creates an HttpOnly session for the reader role.",
+      "observed": {
+        "mfa_status": "authenticated",
+        "role": "reader",
+        "session_cookie": "HttpOnly",
+        "rfc6238_sha1_test_vector_verified": true,
+        "totp_digits": 6,
+        "totp_period_seconds": 30
+      },
+      "pass": true,
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group auth_mfa --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:45.337Z",
+      "finished_utc": "2026-10-19T03:14:45.869Z",
+      "duration_ms": 532.092,
+      "metrics": {
+        "http_requests": 2,
+        "request_payload_bytes_sent": 130,
+        "response_body_bytes_received": 303,
+        "request_duration_ms_total": 25.372,
+        "max_request_duration_ms": 24.415
+      }
+    },
+    {
+      "case_id": "RBAC-01",
+      "group": "rbac_idor",
+      "case": "lector recibe denegación en panel admin",
+      "expected": "Reader role receives HTTP 403 from the administrator panel.",
+      "observed": {
+        "status": 403,
+        "code": "forbidden",
+        "role": "reader"
+      },
+      "pass": true,
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group rbac_idor --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:46.161Z",
+      "finished_utc": "2026-10-19T03:14:46.688Z",
+      "duration_ms": 526.605,
+      "metrics": {
+        "http_requests": 3,
+        "request_payload_bytes_sent": 130,
+        "response_body_bytes_received": 409,
+        "request_duration_ms_total": 21.829,
+        "max_request_duration_ms": 19.902
+      }
+    },
+    {
+      "case_id": "RBAC-02",
+      "group": "rbac_idor",
+      "case": "admin autorizado accede a su panel",
+      "expected": "Admin role receives HTTP 200 from the synthetic administrator panel.",
+      "observed": {
+        "status": 200,
+        "role": "admin",
+        "scope": "synthetic-lab"
+      },
+      "pass": true,
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group rbac_idor --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:46.688Z",
+      "finished_utc": "2026-10-19T03:14:47.221Z",
+      "duration_ms": 532.183,
+      "metrics": {
+        "http_requests": 3,
+        "request_payload_bytes_sent": 133,
+        "response_body_bytes_received": 442,
+        "request_duration_ms_total": 26.414,
+        "max_request_duration_ms": 24.509
+      }
+    },
+    {
+      "case_id": "IDOR-01",
+      "group": "rbac_idor",
+      "case": "objeto de otro usuario no se divulga",
+      "expected": "Reader can read object A but receives a generic HTTP 404 without object B content.",
+      "observed": {
+        "own_object_status": 200,
+        "other_object_status": 404,
+        "other_object_content_disclosed": false
+      },
+      "pass": true,
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group rbac_idor --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:47.221Z",
+      "finished_utc": "2026-10-19T03:14:47.754Z",
+      "duration_ms": 532.66,
+      "metrics": {
+        "http_requests": 4,
+        "request_payload_bytes_sent": 130,
+        "response_body_bytes_received": 582,
+        "request_duration_ms_total": 25.259,
+        "max_request_duration_ms": 22.543
+      }
+    },
+    {
+      "case_id": "INT-01",
+      "group": "integrity_audit",
+      "case": "edición sin permiso se rechaza sin cambiar datos",
+      "expected": "Reader update receives HTTP 403 and a subsequent read proves the object is unchanged.",
+      "observed": {
+        "update_status": 403,
+        "object_unchanged": true
+      },
+      "pass": true,
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group integrity_audit --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:48.099Z",
+      "finished_utc": "2026-10-19T03:14:48.651Z",
+      "duration_ms": 552.022,
+      "metrics": {
+        "http_requests": 5,
+        "request_payload_bytes_sent": 163,
+        "response_body_bytes_received": 715,
+        "request_duration_ms_total": 41.795,
+        "max_request_duration_ms": 34.163
+      }
+    },
+    {
+      "case_id": "RBAC-03",
+      "group": "integrity_audit",
+      "case": "editor modifica su objeto permitido",
+      "expected": "Editor can update the object assigned to that editor.",
+      "observed": {
+        "status": 200,
+        "role": "editor",
+        "own_object_update": true
+      },
+      "pass": true,
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group integrity_audit --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:48.652Z",
+      "finished_utc": "2026-10-19T03:14:49.189Z",
+      "duration_ms": 537.175,
+      "metrics": {
+        "http_requests": 3,
+        "request_payload_bytes_sent": 184,
+        "response_body_bytes_received": 421,
+        "request_duration_ms_total": 29.286,
+        "max_request_duration_ms": 25.973
+      }
+    },
+    {
+      "case_id": "AUDIT-01",
+      "group": "integrity_audit",
+      "case": "auditoría contiene actor UTC acción resultado request_id",
+      "expected": "An audit event exposes actor, UTC timestamp, action, result, and matching request_id without the supplied password.",
+      "observed": {
+        "audit_fields_present": [
+          "action",
+          "actor",
+          "occurred_at_utc",
+          "request_id",
+          "result"
+        ],
+        "actor": "anonymous",
+        "action": "auth.login",
+        "result": "denied",
+        "utc_timestamp_valid": true,
+        "request_id_matches": true
+      },
+      "pass": true,
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group integrity_audit --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:49.189Z",
+      "finished_utc": "2026-10-19T03:14:49.743Z",
+      "duration_ms": 553.359,
+      "metrics": {
+        "http_requests": 4,
+        "request_payload_bytes_sent": 196,
+        "response_body_bytes_received": 926,
+        "request_duration_ms_total": 51.042,
+        "max_request_duration_ms": 24.779
+      }
+    },
+    {
+      "case_id": "INPUT-01",
+      "group": "size_revocation",
+      "case": "límite 64 KiB y solicitud normal posterior",
+      "expected": "A 65,537-byte request is rejected with HTTP 413 at the 65,536-byte limit; a later 73-byte request is accepted with HTTP 201.",
+      "observed": {
+        "limit_bytes": 65536,
+        "oversized_bytes": 65537,
+        "oversized_status": 413,
+        "normal_bytes": 73,
+        "normal_status": 201
+      },
+      "pass": true,
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group size_revocation --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:50.130Z",
+      "finished_utc": "2026-10-19T03:14:50.669Z",
+      "duration_ms": 538.478,
+      "metrics": {
+        "http_requests": 4,
+        "request_payload_bytes_sent": 65740,
+        "response_body_bytes_received": 509,
+        "request_duration_ms_total": 28.983,
+        "max_request_duration_ms": 26.126
+      }
+    },
+    {
+      "case_id": "SESSION-01",
+      "group": "size_revocation",
+      "case": "revocación invalida reutilización de sesión",
+      "expected": "After revocation, reuse of the previous session token receives HTTP 401.",
+      "observed": {
+        "revoke_status": 200,
+        "reused_session_status": 401,
+        "old_session_rejected": true
+      },
+      "pass": true,
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group size_revocation --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:50.669Z",
+      "finished_utc": "2026-10-19T03:14:51.206Z",
+      "duration_ms": 537.117,
+      "metrics": {
+        "http_requests": 4,
+        "request_payload_bytes_sent": 132,
+        "response_body_bytes_received": 490,
+        "request_duration_ms_total": 31.466,
+        "max_request_duration_ms": 26.469
+      }
+    },
+    {
+      "case_id": "ATTACK-01",
+      "group": "attack_backup",
+      "case": "T1083 T1005 T1074.001 sólo con fixtures y alerta",
+      "expected": "Only bundled fixtures are enumerated, copied, and staged; monitoring emits one LAB-DET-001 alert.",
+      "observed": {
+        "techniques": [
+          "T1083",
+          "T1005",
+          "T1074.001"
+        ],
+        "enumerated_fixture_files": 2,
+        "enumerated_names": [
+          "budget.synthetic.csv",
+          "course_roster.synthetic.json"
+        ],
+        "copied_fixture_files": 2,
+        "staged_fixture_files": 2,
+        "alerts_generated": 1,
+        "alert_rule_id": "LAB-DET-001",
+        "alert_file": "alerts.jsonl",
+        "monitoring_rule": "self_contained_local_fixture_directory",
+        "fixture_only": true
+      },
+      "pass": true,
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group attack_backup --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:51.518Z",
+      "finished_utc": "2026-10-19T03:14:52.028Z",
+      "duration_ms": 509.828,
+      "metrics": {
+        "http_requests": 0,
+        "request_payload_bytes_sent": 0,
+        "response_body_bytes_received": 0,
+        "request_duration_ms_total": 0,
+        "max_request_duration_ms": 0.0
+      }
+    },
+    {
+      "case_id": "RECOVERY-01",
+      "group": "attack_backup",
+      "case": "prueba de restauración de archivos por SHA-256",
+      "expected": "A controlled byte change in one disposable working copy is detected, the backup remains unchanged, and restored copies match source/backup SHA-256.",
+      "observed": {
+        "algorithm": "SHA-256",
+        "files_verified": 2,
+        "all_hashes_match": true,
+        "fixture_only": true,
+        "operation_label": "prueba_de_restauracion_de_archivos",
+        "service_continuity_tested": false,
+        "damage_method": "flip_first_byte_xor_0x01_in_disposable_working_copy_only",
+        "damage_target": "budget.synthetic.csv",
+        "damage_detected": true,
+        "damage_before_sha256": "effd6239b7cfc5403958521cbef313a616543c68776488a8899fda6f3798d8da",
+        "damage_after_sha256": "333290e0e4ffaa2f43dd53509f881b62f51978cda34e1cb0e716a8fce93e7cc4",
+        "source_unchanged_during_damage": true,
+        "backup_unchanged_during_damage": true,
+        "restoration_completed": true,
+        "timings_ms": {
+          "copy_to_working": 2.931,
+          "create_backup": 0.876,
+          "controlled_working_copy_damage": 1.909,
+          "restore_from_backup": 2.121,
+          "verify_final_hashes": 2.992,
+          "total": 11.177
+        },
+        "comparisons": [
+          {
+            "file": "budget.synthetic.csv",
+            "source_sha256_before": "effd6239b7cfc5403958521cbef313a616543c68776488a8899fda6f3798d8da",
+            "working_before_sha256": "effd6239b7cfc5403958521cbef313a616543c68776488a8899fda6f3798d8da",
+            "backup_sha256": "effd6239b7cfc5403958521cbef313a616543c68776488a8899fda6f3798d8da",
+            "controlled_damage_applied": true,
+            "working_after_damage_sha256": "333290e0e4ffaa2f43dd53509f881b62f51978cda34e1cb0e716a8fce93e7cc4",
+            "source_sha256_after": "effd6239b7cfc5403958521cbef313a616543c68776488a8899fda6f3798d8da",
+            "backup_sha256_after_damage": "effd6239b7cfc5403958521cbef313a616543c68776488a8899fda6f3798d8da",
+            "working_restored_sha256": "effd6239b7cfc5403958521cbef313a616543c68776488a8899fda6f3798d8da",
+            "restored_snapshot_sha256": "effd6239b7cfc5403958521cbef313a616543c68776488a8899fda6f3798d8da",
+            "source_unchanged": true,
+            "backup_unchanged": true,
+            "restoration_matches_source": true
+          },
+          {
+            "file": "course_roster.synthetic.json",
+            "source_sha256_before": "88150c72c5cd617de4b230381ebf1d78b22defce73bfbdd32ba6d5fe76db15ce",
+            "working_before_sha256": "88150c72c5cd617de4b230381ebf1d78b22defce73bfbdd32ba6d5fe76db15ce",
+            "backup_sha256": "88150c72c5cd617de4b230381ebf1d78b22defce73bfbdd32ba6d5fe76db15ce",
+            "controlled_damage_applied": false,
+            "working_after_damage_sha256": "88150c72c5cd617de4b230381ebf1d78b22defce73bfbdd32ba6d5fe76db15ce",
+            "source_sha256_after": "88150c72c5cd617de4b230381ebf1d78b22defce73bfbdd32ba6d5fe76db15ce",
+            "backup_sha256_after_damage": "88150c72c5cd617de4b230381ebf1d78b22defce73bfbdd32ba6d5fe76db15ce",
+            "working_restored_sha256": "88150c72c5cd617de4b230381ebf1d78b22defce73bfbdd32ba6d5fe76db15ce",
+            "restored_snapshot_sha256": "88150c72c5cd617de4b230381ebf1d78b22defce73bfbdd32ba6d5fe76db15ce",
+            "source_unchanged": true,
+            "backup_unchanged": true,
+            "restoration_matches_source": true
+          }
+        ],
+        "verified_at_utc": "2026-10-19T03:14:52.043Z"
+      },
+      "pass": true,
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group attack_backup --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:52.028Z",
+      "finished_utc": "2026-10-19T03:14:52.538Z",
+      "duration_ms": 509.26,
+      "metrics": {
+        "http_requests": 0,
+        "request_payload_bytes_sent": 0,
+        "response_body_bytes_received": 0,
+        "request_duration_ms_total": 0,
+        "max_request_duration_ms": 0.0
+      }
+    },
+    {
+      "case_id": "BROWSER-01",
+      "group": "browser",
+      "related_case_ids": [
+        "AUTH-02"
+      ],
+      "case": "Password-only login returns HTTP 401 and keeps the session unauthenticated.",
+      "expected": "Password-only login returns HTTP 401 and keeps the session unauthenticated.",
+      "observed": {
+        "status": 401,
+        "code": "mfa_required",
+        "access_granted": false
+      },
+      "pass": true,
+      "passed": true,
+      "command": "node laboratorio/browser-tools/capture.js --base-url http://127.0.0.1:18765 --terminal-url http://127.0.0.1:18766 --output-dir evidencias/laboratorio/capturas",
+      "started_utc": "2026-10-19T03:14:55.275Z",
+      "duration_ms": 573.215,
+      "metrics": {}
+    },
+    {
+      "case_id": "BROWSER-02",
+      "group": "browser",
+      "related_case_ids": [
+        "AUTH-03"
+      ],
+      "case": "Valid RFC 6238 TOTP creates an authenticated reader session and allows its fixture object.",
+      "expected": "Valid RFC 6238 TOTP creates an authenticated reader session and allows its fixture object.",
+      "observed": {
+        "status": 200,
+        "role": "reader",
+        "fixture_visible": true
+      },
+      "pass": true,
+      "passed": true,
+      "command": "node laboratorio/browser-tools/capture.js --base-url http://127.0.0.1:18765 --terminal-url http://127.0.0.1:18766 --output-dir evidencias/laboratorio/capturas",
+      "started_utc": "2026-10-19T03:14:55.848Z",
+      "duration_ms": 305.987,
+      "metrics": {}
+    },
+    {
+      "case_id": "BROWSER-03",
+      "group": "browser",
+      "related_case_ids": [
+        "RBAC-01"
+      ],
+      "case": "Reader role is denied the administrative panel with HTTP 403.",
+      "expected": "Reader role is denied the administrative panel with HTTP 403.",
+      "observed": {
+        "status": 403,
+        "code": "forbidden"
+      },
+      "pass": true,
+      "passed": true,
+      "command": "node laboratorio/browser-tools/capture.js --base-url http://127.0.0.1:18765 --terminal-url http://127.0.0.1:18766 --output-dir evidencias/laboratorio/capturas",
+      "started_utc": "2026-10-19T03:14:56.154Z",
+      "duration_ms": 155.703,
+      "metrics": {}
+    },
+    {
+      "case_id": "BROWSER-04",
+      "group": "browser",
+      "related_case_ids": [
+        "SESSION-01"
+      ],
+      "case": "Session revocation returns HTTP 200 and the next session check is denied with HTTP 401.",
+      "expected": "Session revocation returns HTTP 200 and the next session check is denied with HTTP 401.",
+      "observed": {
+        "revoke_status": 200,
+        "follow_up_status": 401
+      },
+      "pass": true,
+      "passed": true,
+      "command": "node laboratorio/browser-tools/capture.js --base-url http://127.0.0.1:18765 --terminal-url http://127.0.0.1:18766 --output-dir evidencias/laboratorio/capturas",
+      "started_utc": "2026-10-19T03:14:56.310Z",
+      "duration_ms": 253.722,
+      "metrics": {}
+    }
+  ],
+  "groups": [
+    {
+      "group": "auth_mfa",
+      "status": "pass",
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group auth_mfa --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:44.323Z",
+      "finished_utc": "2026-10-19T03:14:45.870Z",
+      "duration_ms": 1545.228,
+      "cases_total": 3,
+      "cases_passed": 3,
+      "cases_failed": 0,
+      "http_requests": 4,
+      "request_payload_bytes_sent": 242,
+      "response_body_bytes_received": 536,
+      "request_duration_ms_total": 77.348,
+      "runtime": {
+        "python": "3.12.3",
+        "sqlite": "3.45.1",
+        "platform": "Linux"
+      },
+      "cases": [
+        "AUTH-01",
+        "AUTH-02",
+        "AUTH-03"
+      ]
+    },
+    {
+      "group": "rbac_idor",
+      "status": "pass",
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group rbac_idor --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:46.161Z",
+      "finished_utc": "2026-10-19T03:14:47.754Z",
+      "duration_ms": 1591.448,
+      "cases_total": 3,
+      "cases_passed": 3,
+      "cases_failed": 0,
+      "http_requests": 10,
+      "request_payload_bytes_sent": 393,
+      "response_body_bytes_received": 1433,
+      "request_duration_ms_total": 73.502,
+      "runtime": {
+        "python": "3.12.3",
+        "sqlite": "3.45.1",
+        "platform": "Linux"
+      },
+      "cases": [
+        "RBAC-01",
+        "RBAC-02",
+        "IDOR-01"
+      ]
+    },
+    {
+      "group": "integrity_audit",
+      "status": "pass",
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group integrity_audit --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:48.099Z",
+      "finished_utc": "2026-10-19T03:14:49.743Z",
+      "duration_ms": 1642.556,
+      "cases_total": 3,
+      "cases_passed": 3,
+      "cases_failed": 0,
+      "http_requests": 12,
+      "request_payload_bytes_sent": 543,
+      "response_body_bytes_received": 2062,
+      "request_duration_ms_total": 122.123,
+      "runtime": {
+        "python": "3.12.3",
+        "sqlite": "3.45.1",
+        "platform": "Linux"
+      },
+      "cases": [
+        "INT-01",
+        "RBAC-03",
+        "AUDIT-01"
+      ]
+    },
+    {
+      "group": "size_revocation",
+      "status": "pass",
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group size_revocation --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:50.130Z",
+      "finished_utc": "2026-10-19T03:14:51.207Z",
+      "duration_ms": 1075.595,
+      "cases_total": 2,
+      "cases_passed": 2,
+      "cases_failed": 0,
+      "http_requests": 8,
+      "request_payload_bytes_sent": 65872,
+      "response_body_bytes_received": 999,
+      "request_duration_ms_total": 60.449,
+      "runtime": {
+        "python": "3.12.3",
+        "sqlite": "3.45.1",
+        "platform": "Linux"
+      },
+      "cases": [
+        "INPUT-01",
+        "SESSION-01"
+      ]
+    },
+    {
+      "group": "attack_backup",
+      "status": "pass",
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group attack_backup --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:51.518Z",
+      "finished_utc": "2026-10-19T03:14:52.538Z",
+      "duration_ms": 1019.088,
+      "cases_total": 2,
+      "cases_passed": 2,
+      "cases_failed": 0,
+      "http_requests": 0,
+      "request_payload_bytes_sent": 0,
+      "response_body_bytes_received": 0,
+      "request_duration_ms_total": 0,
+      "runtime": {
+        "python": "3.12.3",
+        "sqlite": "3.45.1",
+        "platform": "Linux"
+      },
+      "cases": [
+        "ATTACK-01",
+        "RECOVERY-01"
+      ]
+    }
+  ],
+  "terminal_capture_runs": [
+    {
+      "case_id": "TERM-01",
+      "expected": "Allowlisted command ran through PTY and returned exit status 0 with the named test cases in stdout.",
+      "observed": {
+        "group": "auth_mfa",
+        "case_ids_in_stdout": [
+          "AUTH-01",
+          "AUTH-02",
+          "AUTH-03"
+        ],
+        "exit_status": 0,
+        "output_bytes": 617,
+        "duration_ms": 1795.659
+      },
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group auth_mfa --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:44.097Z",
+      "duration_ms": 1795.659
+    },
+    {
+      "case_id": "TERM-02",
+      "expected": "Allowlisted command ran through PTY and returned exit status 0 with the named test cases in stdout.",
+      "observed": {
+        "group": "rbac_idor",
+        "case_ids_in_stdout": [
+          "RBAC-01",
+          "RBAC-02",
+          "IDOR-01"
+        ],
+        "exit_status": 0,
+        "output_bytes": 481,
+        "duration_ms": 1707.857
+      },
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group rbac_idor --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:46.069Z",
+      "duration_ms": 1707.857
+    },
+    {
+      "case_id": "TERM-03",
+      "expected": "Allowlisted command ran through PTY and returned exit status 0 with the named test cases in stdout.",
+      "observed": {
+        "group": "integrity_audit",
+        "case_ids_in_stdout": [
+          "INT-01",
+          "RBAC-03",
+          "AUDIT-01"
+        ],
+        "exit_status": 0,
+        "output_bytes": 603,
+        "duration_ms": 1806.048
+      },
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group integrity_audit --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:47.962Z",
+      "duration_ms": 1806.048
+    },
+    {
+      "case_id": "TERM-04",
+      "expected": "Allowlisted command ran through PTY and returned exit status 0 with the named test cases in stdout.",
+      "observed": {
+        "group": "size_revocation",
+        "case_ids_in_stdout": [
+          "INPUT-01",
+          "SESSION-01"
+        ],
+        "exit_status": 0,
+        "output_bytes": 461,
+        "duration_ms": 1217.678
+      },
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group size_revocation --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:50.016Z",
+      "duration_ms": 1217.678
+    },
+    {
+      "case_id": "TERM-05",
+      "expected": "Allowlisted command ran through PTY and returned exit status 0 with the named test cases in stdout.",
+      "observed": {
+        "group": "attack_backup",
+        "case_ids_in_stdout": [
+          "ATTACK-01",
+          "RECOVERY-01"
+        ],
+        "exit_status": 0,
+        "output_bytes": 3227,
+        "duration_ms": 1153.517
+      },
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group attack_backup --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:51.409Z",
+      "duration_ms": 1153.517
+    }
+  ],
+  "metrics": {
+    "functional_cases_passed": 13,
+    "functional_cases_total": 13,
+    "browser_cases_passed": 4,
+    "browser_cases_total": 4,
+    "terminal_screenshots": 5,
+    "browser_screenshots": 4,
+    "functional_http_requests": 34,
+    "functional_request_payload_bytes": 67050,
+    "functional_response_body_bytes": 5030,
+    "functional_average_http_response_ms": 9.807,
+    "browser_app_http_requests": 7,
+    "browser_api_http_requests": 6,
+    "browser_request_payload_bytes": 132,
+    "browser_http_status_counts": {
+      "200": 4,
+      "401": 2,
+      "403": 1
+    },
+    "measured_functional_plus_browser_http_requests": 41,
+    "input_limit_bytes": 65536,
+    "oversized_request_bytes": 65537,
+    "oversized_request_status": 413,
+    "normal_request_after_oversized_status": 201,
+    "audit_required_fields_verified": true,
+    "session_reuse_after_revocation_status": 401,
+    "attack_fixture_files_staged": 2,
+    "staging_alerts_generated": 1,
+    "backup_files_hash_verified": 2,
+    "backup_restore_hashes_match": true,
+    "recovery_damage_detected_in_working_copy": true,
+    "recovery_source_unchanged": true,
+    "recovery_backup_unchanged": true,
+    "recovery_restoration_completed": true,
+    "recovery_timings_ms": {
+      "copy_to_working": 2.931,
+      "create_backup": 0.876,
+      "controlled_working_copy_damage": 1.909,
+      "restore_from_backup": 2.121,
+      "verify_final_hashes": 2.992,
+      "total": 11.177
+    }
+  },
+  "limitations": [
+    "All accounts and records are synthetic fixtures; no Universidad Nacional del Altiplano systems, users, or findings were accessed or represented.",
+    "The 64 KiB scenario is one bounded oversized request followed by one valid request; it is not a flood, load, or DDoS-resistance test.",
+    "MITRE ATT&CK T1083, T1005, and T1074.001 are represented only by enumeration, copying, and staging of the two bundled synthetic files.",
+    "The alert is a simple local rule over a staging directory, not a SIEM/EDR deployment or institutional monitoring result.",
+    "The SQLite audit record is structured test evidence; it is mutable and does not establish legal non-repudiation.",
+    "Captured execution used the already-present marfil-pdf-test image and its recorded local image ID; that image is not distributed. The pinned official Python slim option is documented but was not pulled or executed, so it does not recreate the captured runtime or promise pixel-identical screenshots.",
+    "RECOVERY-01 is a synthetic file-restoration test: it mutates one disposable working copy, then restores it from backup. It does not test service continuity, high availability, or ransomware behavior.",
+    "The source manifest fingerprints laboratory code and fixtures (plus the PTY helper) to reproduce conditions; it does not guarantee pixel-identical output across runtime or browser images.",
+    "The headed browser used Playwright screenshots of a live local app and PTY-backed terminal page; no screenshot contains a password, TOTP seed/code, session token, or cookie.",
+    "Terminal.app AppleScript window enumeration did not return within the 5-second bound, so no window ID was obtained and screencapture -l was not used; the dedicated PTY-backed terminal fallback was captured instead."
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "titulo": "Suplemento de referencias R21–R25 y comprobación NIST PR.AA-05",
+  "complementa": "fuentes/dossier.md, registro R01–R20; no lo reemplaza",
+  "fecha_consulta": "2026-10-18",
+  "referencias": [
+    {
+      "id": "R21",
+      "institucion": ["FBI", "CISA"],
+      "titulo": "Cyber Threat Actors Use a Variety of Techniques to Target Election and Campaign Officials",
+      "identificador": "I-101626-PSA",
+      "fecha_publicacion": "2026-10-16",
+      "url": "https://www.ic3.gov/PSA/2026/PSA261016",
+      "pinpoint": "Alert Number y cuerpo del PSA; phishing/smishing y consejos organizacionales",
+      "respalda": "El aviso del 16 de octubre aborda phishing/smishing dirigidos a autoridades electorales y de campaña de EE. UU.",
+      "limite": "No es evidencia de una campaña contra la UNA Puno ni de exposición local."
+    },
+    {
+      "id": "R22",
+      "institucion": "IETF / RFC Editor",
+      "titulo": "RFC 6238: TOTP: Time-Based One-Time Password Algorithm",
+      "fecha_publicacion": "2011-05",
+      "url": "https://www.rfc-editor.org/rfc/rfc6238",
+      "pinpoint": "Appendix B, Test Vectors; t=59, SHA-1, 8 digits",
+      "respalda": "El vector publicado es 94287082.",
+      "limite": "El vector primario es de ocho dígitos; 287082 es la representación de seis dígitos usada por el laboratorio."
+    },
+    {
+      "id": "R23",
+      "institucion": "Microsoft / Playwright",
+      "titulo": "Playwright documentation: Screenshots",
+      "fecha_publicacion": null,
+      "nota_fecha": "La página no indica fecha editorial o de actualización; consulta 2026-10-18.",
+      "url": "https://playwright.dev/docs/screenshots",
+      "pinpoint": "Introducción, Full page screenshots y Element screenshot",
+      "respalda": "La documentación oficial describe capturas con page.screenshot y locator.screenshot.",
+      "limite": "La documentación de API no verifica la autenticidad de una captura específica ni la ejecución que representa."
+    },
+    {
+      "id": "R24",
+      "institucion": "MITRE ATT&CK",
+      "titulo": "Exploitation for Privilege Escalation, T1068",
+      "fecha_creacion": "2017-05-31",
+      "fecha_ultima_modificacion_pagina_v20": "2025-10-24",
+      "version": "ATT&CK Enterprise v20.0; vigente desde 2026-10-13 conforme R08",
+      "fecha_consulta": "2026-10-18",
+      "url": "https://attack.mitre.org/versions/v20/techniques/T1068/",
+      "pinpoint": "Descripción, ID y táctica Privilege Escalation",
+      "respalda": "El nombre/concepto de explotación de vulnerabilidades para elevar privilegios.",
+      "limite": "Taxonomía y escenario analítico; no prueba explotación local ni de la UNA."
+    },
+    {
+      "id": "R25",
+      "institucion": "MITRE ATT&CK",
+      "titulo": "Remote Services, T1021",
+      "fecha_creacion": "2017-05-31",
+      "fecha_ultima_modificacion_pagina_v20": "2025-10-24",
+      "version": "ATT&CK Enterprise v20.0; vigente desde 2026-10-13 conforme R08",
+      "fecha_consulta": "2026-10-18",
+      "url": "https://attack.mitre.org/versions/v20/techniques/T1021/",
+      "pinpoint": "Descripción, ID, sub-técnicas y táctica Lateral Movement",
+      "respalda": "El nombre/concepto del uso adversario de servicios remotos para actividad lateral.",
+      "limite": "Taxonomía y escenario de planificación; no prueba actividad local ni de la UNA."
+    }
+  ],
+  "verificacion_crosswalk_nist": {
+    "referencia_existente": "R03",
+    "documento": "NIST CSWP 29, The NIST Cybersecurity Framework (CSF) 2.0",
+    "fecha_publicacion": "2024-02-26",
+    "url_doi": "https://doi.org/10.6028/NIST.CSWP.29",
+    "url_pdf": "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf",
+    "pinpoint": "Appendix A, PROTECT, PR.AA-05",
+    "texto_original": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties.",
+    "ubicacion_tex": "entrega/Informe_Plan_Ciberseguridad_UNA_Puno.tex, línea 732 (cross-trace C02; S03/S07/S11)",
+    "resultado": "El código y la relación analítica son pertinentes. La frase en español del TEX es síntesis, no cita/traducción literal; recoge revisión y mínimo privilegio, pero omite los demás componentes explícitos del resultado NIST.",
+    "metodo": "Texto contrastado con el PDF oficial NIST; el TEX no se modificó."
+  },
+  "alcance": "Suplemento documental; no es evidencia del laboratorio ni se incorpora a sus manifiestos."
+}

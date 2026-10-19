@@ -1,0 +1,208 @@
+{
+  "generated_at_utc": "2026-10-19T03:15:27.855Z",
+  "root": "evidencias/laboratorio",
+  "capture_count": 9,
+  "terminal_capture_count": 5,
+  "browser_capture_count": 4,
+  "captures": [
+    {
+      "id": "TERM-01",
+      "path": "evidencias/laboratorio/capturas/term-01-auth_mfa.png",
+      "case_id": null,
+      "case_ids": [
+        "AUTH-01",
+        "AUTH-02",
+        "AUTH-03"
+      ],
+      "case": [
+        "AUTH-01",
+        "AUTH-02",
+        "AUTH-03"
+      ],
+      "caption": "La consola PTY ejecutó los casos de credencial, MFA pendiente y MFA válido; el proceso terminó con estado 0.",
+      "method": "playwright_page_screenshot_of_live_pty_terminal",
+      "metadata": {
+        "capture_method": "playwright_page_screenshot_of_live_pty_terminal",
+        "captured_at_utc": "2026-10-19T03:14:46.035Z",
+        "screenshot_bytes": 158222,
+        "process_command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group auth_mfa --artifact-dir /outputs --runtime-dir /outputs/runtime",
+        "process_exit_status": 0,
+        "process_duration_ms": 1795.659,
+        "raw_log_path": "logs/terminal/auth_mfa.log",
+        "source_origin": "http://127.0.0.1:18766"
+      }
+    },
+    {
+      "id": "TERM-02",
+      "path": "evidencias/laboratorio/capturas/term-02-rbac_idor.png",
+      "case_id": null,
+      "case_ids": [
+        "RBAC-01",
+        "RBAC-02",
+        "IDOR-01"
+      ],
+      "case": [
+        "RBAC-01",
+        "RBAC-02",
+        "IDOR-01"
+      ],
+      "caption": "La consola PTY ejecutó denegación lector/admin, acceso admin autorizado y control de lectura A/B; el proceso terminó con estado 0.",
+      "method": "playwright_page_screenshot_of_live_pty_terminal",
+      "metadata": {
+        "capture_method": "playwright_page_screenshot_of_live_pty_terminal",
+        "captured_at_utc": "2026-10-19T03:14:47.926Z",
+        "screenshot_bytes": 152128,
+        "process_command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group rbac_idor --artifact-dir /outputs --runtime-dir /outputs/runtime",
+        "process_exit_status": 0,
+        "process_duration_ms": 1707.857,
+        "raw_log_path": "logs/terminal/rbac_idor.log",
+        "source_origin": "http://127.0.0.1:18766"
+      }
+    },
+    {
+      "id": "TERM-03",
+      "path": "evidencias/laboratorio/capturas/term-03-integrity_audit.png",
+      "case_id": null,
+      "case_ids": [
+        "INT-01",
+        "RBAC-03",
+        "AUDIT-01"
+      ],
+      "case": [
+        "INT-01",
+        "RBAC-03",
+        "AUDIT-01"
+      ],
+      "caption": "La consola PTY ejecutó integridad, edición permitida por editor y validación de campos de auditoría; el proceso terminó con estado 0.",
+      "method": "playwright_page_screenshot_of_live_pty_terminal",
+      "metadata": {
+        "capture_method": "playwright_page_screenshot_of_live_pty_terminal",
+        "captured_at_utc": "2026-10-19T03:14:49.901Z",
+        "screenshot_bytes": 158807,
+        "process_command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group integrity_audit --artifact-dir /outputs --runtime-dir /outputs/runtime",
+        "process_exit_status": 0,
+        "process_duration_ms": 1806.048,
+        "raw_log_path": "logs/terminal/integrity_audit.log",
+        "source_origin": "http://127.0.0.1:18766"
+      }
+    },
+    {
+      "id": "TERM-04",
+      "path": "evidencias/laboratorio/capturas/term-04-size_revocation.png",
+      "case_id": null,
+      "case_ids": [
+        "INPUT-01",
+        "SESSION-01"
+      ],
+      "case": [
+        "INPUT-01",
+        "SESSION-01"
+      ],
+      "caption": "La consola PTY ejecutó el límite de 64 KiB, la solicitud posterior válida y la revocación efectiva; el proceso terminó con estado 0.",
+      "method": "playwright_page_screenshot_of_live_pty_terminal",
+      "metadata": {
+        "capture_method": "playwright_page_screenshot_of_live_pty_terminal",
+        "captured_at_utc": "2026-10-19T03:14:51.369Z",
+        "screenshot_bytes": 148539,
+        "process_command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group size_revocation --artifact-dir /outputs --runtime-dir /outputs/runtime",
+        "process_exit_status": 0,
+        "process_duration_ms": 1217.678,
+        "raw_log_path": "logs/terminal/size_revocation.log",
+        "source_origin": "http://127.0.0.1:18766"
+      }
+    },
+    {
+      "id": "TERM-05",
+      "path": "evidencias/laboratorio/capturas/term-05-attack_backup.png",
+      "case_id": null,
+      "case_ids": [
+        "ATTACK-01",
+        "RECOVERY-01"
+      ],
+      "case": [
+        "ATTACK-01",
+        "RECOVERY-01"
+      ],
+      "caption": "La consola PTY ejecutó enumeración/copia/staging de fixtures con alerta y verificación de backup/restore SHA-256; el proceso terminó con estado 0.",
+      "method": "playwright_page_screenshot_of_live_pty_terminal",
+      "metadata": {
+        "capture_method": "playwright_page_screenshot_of_live_pty_terminal",
+        "captured_at_utc": "2026-10-19T03:14:53.642Z",
+        "screenshot_bytes": 330286,
+        "process_command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group attack_backup --artifact-dir /outputs --runtime-dir /outputs/runtime",
+        "process_exit_status": 0,
+        "process_duration_ms": 1153.517,
+        "raw_log_path": "logs/terminal/attack_backup.log",
+        "source_origin": "http://127.0.0.1:18766"
+      }
+    },
+    {
+      "id": "BROWSER-01",
+      "path": "evidencias/laboratorio/capturas/browser-01-mfa-required.png",
+      "case_id": "AUTH-02",
+      "case_ids": [
+        "AUTH-02"
+      ],
+      "case": "AUTH-02",
+      "caption": "La contraseña correcta produjo HTTP 401 y exigió MFA; la interfaz indica que aún no se concedió acceso.",
+      "method": "playwright_page_screenshot_live_chromium",
+      "metadata": {
+        "capture_method": "playwright_page_screenshot_live_chromium",
+        "captured_at_utc": "2026-10-19T03:14:55.848Z",
+        "screenshot_bytes": 181235,
+        "source_origin": "http://127.0.0.1:18765"
+      }
+    },
+    {
+      "id": "BROWSER-02",
+      "path": "evidencias/laboratorio/capturas/browser-02-access-allowed.png",
+      "case_id": "AUTH-03",
+      "case_ids": [
+        "AUTH-03"
+      ],
+      "case": "AUTH-03",
+      "caption": "El TOTP válido permitió la sesión del rol lector y la lectura del registro ficticio A.",
+      "method": "playwright_page_screenshot_live_chromium",
+      "metadata": {
+        "capture_method": "playwright_page_screenshot_live_chromium",
+        "captured_at_utc": "2026-10-19T03:14:56.154Z",
+        "screenshot_bytes": 182093,
+        "source_origin": "http://127.0.0.1:18765"
+      }
+    },
+    {
+      "id": "BROWSER-03",
+      "path": "evidencias/laboratorio/capturas/browser-03-rbac-403.png",
+      "case_id": "RBAC-01",
+      "case_ids": [
+        "RBAC-01"
+      ],
+      "case": "RBAC-01",
+      "caption": "La solicitud al panel administrativo del rol lector recibió HTTP 403.",
+      "method": "playwright_page_screenshot_live_chromium",
+      "metadata": {
+        "capture_method": "playwright_page_screenshot_live_chromium",
+        "captured_at_utc": "2026-10-19T03:14:56.310Z",
+        "screenshot_bytes": 183114,
+        "source_origin": "http://127.0.0.1:18765"
+      }
+    },
+    {
+      "id": "BROWSER-04",
+      "path": "evidencias/laboratorio/capturas/browser-04-session-revoked.png",
+      "case_id": "SESSION-01",
+      "case_ids": [
+        "SESSION-01"
+      ],
+      "case": "SESSION-01",
+      "caption": "Después de revocar la sesión, la siguiente solicitud recibió HTTP 401.",
+      "method": "playwright_page_screenshot_live_chromium",
+      "metadata": {
+        "capture_method": "playwright_page_screenshot_live_chromium",
+        "captured_at_utc": "2026-10-19T03:14:56.563Z",
+        "screenshot_bytes": 182557,
+        "source_origin": "http://127.0.0.1:18765"
+      }
+    }
+  ]
+}

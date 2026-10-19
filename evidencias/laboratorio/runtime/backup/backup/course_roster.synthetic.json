@@ -1,0 +1,7 @@
+{
+  "dataset": "fictional-course-roster",
+  "records": [
+    {"fixture_id": "fixture-student-001", "course": "CS-LAB-01", "status": "synthetic"},
+    {"fixture_id": "fixture-student-002", "course": "CS-LAB-01", "status": "synthetic"}
+  ]
+}

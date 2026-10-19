@@ -1,0 +1,3 @@
+fixture_id,category,amount,currency
+synthetic-row-001,training-lab,1000.00,PEN
+synthetic-row-002,backup-lab,250.00,PEN

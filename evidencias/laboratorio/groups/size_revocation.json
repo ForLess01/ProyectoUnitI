@@ -1,0 +1,75 @@
+{
+  "group": "size_revocation",
+  "started_utc": "2026-10-19T03:14:50.130Z",
+  "finished_utc": "2026-10-19T03:14:51.207Z",
+  "command": "python3 -m laboratorio.run_tests",
+  "cases_total": 2,
+  "cases_passed": 2,
+  "cases_failed": 0,
+  "http_requests": 8,
+  "request_payload_bytes_sent": 65872,
+  "response_body_bytes_received": 999,
+  "request_duration_ms_total": 60.449,
+  "duration_ms": 1075.595,
+  "runtime": {
+    "python": "3.12.3",
+    "sqlite": "3.45.1",
+    "platform": "Linux"
+  },
+  "cases": [
+    {
+      "case_id": "INPUT-01",
+      "case": "límite 64 KiB y solicitud normal posterior",
+      "expected": "A 65,537-byte request is rejected with HTTP 413 at the 65,536-byte limit; a later 73-byte request is accepted with HTTP 201.",
+      "observed": {
+        "limit_bytes": 65536,
+        "oversized_bytes": 65537,
+        "oversized_status": 413,
+        "normal_bytes": 73,
+        "normal_status": 201
+      },
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group size_revocation --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:50.130Z",
+      "finished_utc": "2026-10-19T03:14:50.669Z",
+      "duration_ms": 538.478,
+      "metrics": {
+        "http_requests": 4,
+        "request_payload_bytes_sent": 65740,
+        "response_body_bytes_received": 509,
+        "request_duration_ms_total": 28.983,
+        "max_request_duration_ms": 26.126
+      }
+    },
+    {
+      "case_id": "SESSION-01",
+      "case": "revocación invalida reutilización de sesión",
+      "expected": "After revocation, reuse of the previous session token receives HTTP 401.",
+      "observed": {
+        "revoke_status": 200,
+        "reused_session_status": 401,
+        "old_session_rejected": true
+      },
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group size_revocation --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:50.669Z",
+      "finished_utc": "2026-10-19T03:14:51.206Z",
+      "duration_ms": 537.117,
+      "metrics": {
+        "http_requests": 4,
+        "request_payload_bytes_sent": 132,
+        "response_body_bytes_received": 490,
+        "request_duration_ms_total": 31.466,
+        "max_request_duration_ms": 26.469
+      }
+    }
+  ],
+  "execution_command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group size_revocation --artifact-dir /outputs --runtime-dir /outputs/runtime",
+  "terminal_capture": {
+    "method": "pty_subprocess_docker_exec",
+    "process_exit_status": 0,
+    "duration_ms": 1217.678,
+    "timed_out": false,
+    "output_limited": false
+  }
+}

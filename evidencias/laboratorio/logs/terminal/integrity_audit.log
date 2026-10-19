@@ -1,0 +1,6 @@
+COMMAND python3 -m laboratorio.run_tests
+GROUP integrity_audit cases=3
+[PASS] INT-01 | 552.022 ms | {"update_status":403,"object_unchanged":true}
+[PASS] RBAC-03 | 537.175 ms | {"status":200,"role":"editor","own_object_update":true}
+[PASS] AUDIT-01 | 553.359 ms | {"audit_fields_present":["action","actor","occurred_at_utc","request_id","result"],"actor":"anonymous","action":"auth.login","result":"denied","utc_timestamp_valid":true,"request_id_matches":true}
+GROUP_RESULT group=integrity_audit passed=3/3 failed=0 http_requests=12 duration_ms=1642.556 result=/outputs/groups/integrity_audit.json

@@ -1,0 +1,6 @@
+COMMAND python3 -m laboratorio.run_tests
+GROUP auth_mfa cases=3
+[PASS] AUTH-01 | 508.660 ms | {"status":401,"code":"invalid_credentials","request_id_present":true,"session_created":false}
+[PASS] AUTH-02 | 504.476 ms | {"status":401,"code":"mfa_required","access_granted":false,"session_created":false}
+[PASS] AUTH-03 | 532.092 ms | {"mfa_status":"authenticated","role":"reader","session_cookie":"HttpOnly","rfc6238_sha1_test_vector_verified":true,"totp_digits":6,"totp_period_seconds":30}
+GROUP_RESULT group=auth_mfa passed=3/3 failed=0 http_requests=4 duration_ms=1545.228 result=/outputs/groups/auth_mfa.json

@@ -1,0 +1,11 @@
+BROWSER_CAPTURE_RESULT cases=9/9 terminal=5/5 browser=4/4 screenshots=9
+BROWSER_CAPTURE_JSON evidencias/laboratorio/browser-results.json
+SCREENSHOT TERM-01 capturas/term-01-auth_mfa.png playwright_page_screenshot_of_live_pty_terminal
+SCREENSHOT TERM-02 capturas/term-02-rbac_idor.png playwright_page_screenshot_of_live_pty_terminal
+SCREENSHOT TERM-03 capturas/term-03-integrity_audit.png playwright_page_screenshot_of_live_pty_terminal
+SCREENSHOT TERM-04 capturas/term-04-size_revocation.png playwright_page_screenshot_of_live_pty_terminal
+SCREENSHOT TERM-05 capturas/term-05-attack_backup.png playwright_page_screenshot_of_live_pty_terminal
+SCREENSHOT BROWSER-01 capturas/browser-01-mfa-required.png playwright_page_screenshot_live_chromium
+SCREENSHOT BROWSER-02 capturas/browser-02-access-allowed.png playwright_page_screenshot_live_chromium
+SCREENSHOT BROWSER-03 capturas/browser-03-rbac-403.png playwright_page_screenshot_live_chromium
+SCREENSHOT BROWSER-04 capturas/browser-04-session-revoked.png playwright_page_screenshot_live_chromium

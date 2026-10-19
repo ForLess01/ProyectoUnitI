@@ -1,0 +1,100 @@
+{
+  "group": "auth_mfa",
+  "started_utc": "2026-10-19T03:14:44.323Z",
+  "finished_utc": "2026-10-19T03:14:45.870Z",
+  "command": "python3 -m laboratorio.run_tests",
+  "cases_total": 3,
+  "cases_passed": 3,
+  "cases_failed": 0,
+  "http_requests": 4,
+  "request_payload_bytes_sent": 242,
+  "response_body_bytes_received": 536,
+  "request_duration_ms_total": 77.348,
+  "duration_ms": 1545.228,
+  "runtime": {
+    "python": "3.12.3",
+    "sqlite": "3.45.1",
+    "platform": "Linux"
+  },
+  "cases": [
+    {
+      "case_id": "AUTH-01",
+      "case": "credencial incorrecta denegada",
+      "expected": "Invalid fixture password returns HTTP 401 invalid_credentials and creates no session.",
+      "observed": {
+        "status": 401,
+        "code": "invalid_credentials",
+        "request_id_present": true,
+        "session_created": false
+      },
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group auth_mfa --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:44.323Z",
+      "finished_utc": "2026-10-19T03:14:44.832Z",
+      "duration_ms": 508.66,
+      "metrics": {
+        "http_requests": 1,
+        "request_payload_bytes_sent": 60,
+        "response_body_bytes_received": 78,
+        "request_duration_ms_total": 27.262,
+        "max_request_duration_ms": 27.262
+      }
+    },
+    {
+      "case_id": "AUTH-02",
+      "case": "contraseña correcta sin TOTP denegada",
+      "expected": "A correct password without TOTP returns HTTP 401 mfa_required and grants no access.",
+      "observed": {
+        "status": 401,
+        "code": "mfa_required",
+        "access_granted": false,
+        "session_created": false
+      },
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group auth_mfa --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:44.832Z",
+      "finished_utc": "2026-10-19T03:14:45.337Z",
+      "duration_ms": 504.476,
+      "metrics": {
+        "http_requests": 1,
+        "request_payload_bytes_sent": 52,
+        "response_body_bytes_received": 155,
+        "request_duration_ms_total": 24.714,
+        "max_request_duration_ms": 24.714
+      }
+    },
+    {
+      "case_id": "AUTH-03",
+      "case": "TOTP RFC 6238 válido permite acceso",
+      "expected": "Valid RFC 6238 TOTP creates an HttpOnly session for the reader role.",
+      "observed": {
+        "mfa_status": "authenticated",
+        "role": "reader",
+        "session_cookie": "HttpOnly",
+        "rfc6238_sha1_test_vector_verified": true,
+        "totp_digits": 6,
+        "totp_period_seconds": 30
+      },
+      "passed": true,
+      "command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group auth_mfa --artifact-dir /outputs --runtime-dir /outputs/runtime",
+      "started_utc": "2026-10-19T03:14:45.337Z",
+      "finished_utc": "2026-10-19T03:14:45.869Z",
+      "duration_ms": 532.092,
+      "metrics": {
+        "http_requests": 2,
+        "request_payload_bytes_sent": 130,
+        "response_body_bytes_received": 303,
+        "request_duration_ms_total": 25.372,
+        "max_request_duration_ms": 24.415
+      }
+    }
+  ],
+  "execution_command": "docker exec --interactive --tty --env TERM=dumb proyectouniti-lab-demo /usr/bin/env -i PATH=/usr/local/bin:/usr/bin:/bin PYTHONPATH=/app PYTHONDONTWRITEBYTECODE=1 TZ=UTC TERM=dumb LAB_OUTPUT_ROOT=/outputs python3 -m laboratorio.run_tests --group auth_mfa --artifact-dir /outputs --runtime-dir /outputs/runtime",
+  "terminal_capture": {
+    "method": "pty_subprocess_docker_exec",
+    "process_exit_status": 0,
+    "duration_ms": 1795.659,
+    "timed_out": false,
+    "output_limited": false
+  }
+}
