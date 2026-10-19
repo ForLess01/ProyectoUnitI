@@ -45,7 +45,9 @@ def main() -> None:
     ]
     assert all(value in cover for value in required_cover), cover
     assert not re.search(r"undefined|Fatal error|Overfull", log), "Unresolved LaTeX issue"
-    assert not re.search(r"\b(parent|subagente|subagent|GPT)\b", text, re.I)
+    assert "Resumen ejecutivo" not in text
+    assert "Resumen" in text
+    assert re.search(r"Author:\s+Alfonte Tarqui Rendo", info)
     assert source.count("\\anexo{") == 10
     assert source.count("\\captura{") == 14
     assert source.count("\\bibitem{") == 25

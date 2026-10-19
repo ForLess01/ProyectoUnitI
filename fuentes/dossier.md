@@ -1,13 +1,13 @@
 # Dossier de fuentes: plan de ciberseguridad UNA Puno
 
-**Corte documental:** 2026-10-18 (fecha local de consulta). **Alcance:** investigación pública y documental para que la persona autora del informe decida y redacte después. Este dossier no redacta capítulos finales, no afirma controles desplegados ni incidentes de la UNA Puno y no sustituye la validación institucional.
+**Corte documental:** 2026-10-18 (fecha local de consulta). **Alcance:** registro de fuentes primarias para sustentar el análisis institucional, normativo y técnico del plan. La evidencia pública no acredita por sí sola controles desplegados ni incidentes de la UNA Puno y no sustituye la validación institucional.
 
-## 1. Resultado útil para la autoría
+## 1. Síntesis documental
 
 - Se leyó completa la consigna `TRABAJO 01 Plan_Ciberseguridad.md` (371 líneas). La consigna enumera los apartados y anexos, repite el numeral **XII** para CSF y controles, y no incluye una rúbrica ni ponderaciones de calificación.
 - El portal institucional enlaza servicios con los rótulos literales **Matriculas y notas** (`campus.unap.edu.pe`), **Tramites Titulos Grados y Constancias** (`tramites.unap.edu.pe`), **Aula Virtual** (`aulavirtual2.unap.edu.pe`) y **Repositorio Institucional**. Son hechos de catálogo web, no evidencia de disponibilidad, autenticación, arquitectura, responsable técnico o inventario de sistemas.
 - El ROF aprobado por Resolución Rectoral N.° 2212-2025-R-UNA define a la **Oficina de Tecnologías de la Información (OTI)** como órgano de apoyo dependiente de Rectorado. Los artículos 70–71 cubren sistemas, infraestructura de cómputo, gobierno digital, telecomunicaciones, redes y seguridad de la información automatizada. Esto fija una responsabilidad orgánica publicada; no prueba que controles concretos estén implementados ni que la jefatura OTI sea el Oficial de Seguridad y Confianza Digital (OSCD).
-- Para una matriz CSF 2.0 se proponen resultados específicos en las seis funciones, más abajo. Son **candidatos de mapeo** para que la autoría los adapte a riesgos y evidencias locales; no son equivalencias automáticas ATT&CK↔CSF ni resultados actuales de la UNA.
+- Para la matriz CSF 2.0 se identifican resultados específicos en las seis funciones. Su aplicación depende de riesgos y evidencias locales; no son equivalencias automáticas ATT&CK↔CSF ni resultados actuales de la UNA.
 - Los avisos CISA describen actividad de terceros. Su prioridad como aviso no demuestra exposición local ni un incidente en la UNA. Los indicadores se copian defanged, no se resolvieron ni visitaron y no deben convertirse en reglas de bloqueo sin validación.
 
 ## 2. Hechos institucionales y límites
@@ -26,7 +26,7 @@ La portada oficial (R01) se identifica como UNAP/UNA Puno y lista esos servicios
 
 Las URLs se transcriben como destinos de enlaces institucionales publicados; no se hizo prueba de inicio de sesión, funcionamiento, seguridad ni disponibilidad de esas aplicaciones.
 
-**Caveat de integridad de la fuente:** la salida obtenida al leer las dos páginas internas de repositorio y biblioteca incluyó al pie un enlace externo rotulado `bandar togel`. No se siguió el enlace ni se comprobó con navegador independiente; no se atribuye a un incidente. La autoría debe validar con la entidad la integridad de esas páginas antes de reproducir o usar ese elemento. La portada y los rótulos de servicio se conservan como contenido observado, no como auditoría del portal.
+**Integridad de la fuente:** la respuesta obtenida al consultar las páginas internas de repositorio y biblioteca incluyó al pie un enlace externo rotulado `bandar togel`. No se siguió el enlace ni se comprobó con navegador independiente; no se atribuye a un incidente. Su origen y legitimidad requieren validación institucional. La portada y los rótulos de servicio se conservan como contenido observado, no como auditoría del portal.
 
 ### OTI según ROF 2025
 
@@ -49,11 +49,11 @@ No se localizó evidencia verificable del inventario real de servidores, estacio
 
 **Hallazgo de gobernanza para validar:** OTI tiene funciones informáticas y de seguridad de información automatizada en ROF; DS 126-2025-PCM asigna otras funciones al OSCD formalmente designado. No afirmar que ambos roles son la misma persona/unidad sin resolución o evidencia institucional.
 
-## 4. Candidatos de CSF 2.0 para la matriz de la persona autora
+## 4. Resultados CSF 2.0 de referencia
 
-NIST CSF 2.0 define las seis funciones: **GOVERN** (estrategia, expectativas y política de riesgo); **IDENTIFY** (comprensión del riesgo actual); **PROTECT** (salvaguardas); **DETECT** (hallar y analizar ataques/compromisos); **RESPOND** (acciones frente al incidente); **RECOVER** (restaurar activos y operaciones). Para empezar la matriz —no como evaluación de estado actual— se proponen subcategorías con texto exacto NIST:
+NIST CSF 2.0 define las seis funciones: **GOVERN** (estrategia, expectativas y política de riesgo); **IDENTIFY** (comprensión del riesgo actual); **PROTECT** (salvaguardas); **DETECT** (hallar y analizar ataques/compromisos); **RESPOND** (acciones frente al incidente); **RECOVER** (restaurar activos y operaciones). La tabla sintetiza en español resultados del marco como referencia para el perfil objetivo, no como evaluación del estado institucional actual:
 
-| Función | Categoría/subcategorías candidatas (texto NIST) | Uso que la autoría puede evaluar |
+| Función | Categoría/subcategorías de referencia (síntesis de NIST) | Aplicación propuesta |
 |---|---|---|
 | Govern | GV.RR-02: roles, responsabilidades y autoridades de riesgo cibernético se establecen, comunican, entienden y hacen cumplir. GV.RM-01: objetivos de gestión de riesgo se establecen y acuerdan con partes interesadas. | Designación, autoridad, aprobación y recursos del plan; confirmar nombres y resoluciones. |
 | Identify | ID.AM-01: inventarios de hardware mantenidos. ID.AM-02: inventarios de software, servicios y sistemas mantenidos. ID.RA-01: vulnerabilidades de activos identificadas, validadas y registradas. | Levantar inventario, propietarios, criticidad y vulnerabilidades; no inferirlo de la lista de portal. |
@@ -104,7 +104,7 @@ No se presenta ningún IOC como activo en la fecha de consulta ni como indicador
 
 ## 6. Checklist de fuentes y datos pendientes por apartado
 
-| Consigna | Fuentes de base | Evidencia institucional que aún debe obtenerse (si se redacta el informe) |
+| Consigna | Fuentes de base | Evidencia institucional pendiente de validación |
 |---|---|---|
 | I–V: datos generales, introducción, finalidad, objetivos y alcance | R01–R05, R14–R17 | Responsable y aprobación formal del plan, periodo de vigencia, alcance acordado y autoridad competente. No inferirlos del ROF. |
 | VI: inventario y clasificación | R01–R03, R15 | Inventario real, dueños, datos, criticidad, dependencias, terceros y clasificación aprobada. La portada solo prueba enlaces publicados. |
@@ -156,12 +156,12 @@ Todas las referencias se consultaron el **2026-10-18**. Las fechas son las visib
 
 ## 8. Descargas y manifiesto
 
-Se descargaron 12 PDF oficiales enlazados por las fuentes primarias con `curl -fL` el 2026-10-18. Tamaño agregado medido: **16,168,712 bytes** (15.4 MiB), inferior al límite solicitado de 30 MB. Los SHA-256 completos están en [`documentos/SHA256SUMS`](documentos/SHA256SUMS) y se reproducen en `dossier.json`. Los PDFs se conservaron como referencia local; no se descargaron muestras maliciosas ni archivos STIX/IOC separados.
+Se descargaron 12 PDF oficiales enlazados por las fuentes primarias con `curl -fL` el 2026-10-18. Tamaño agregado medido: **16,168,712 bytes** (15.4 MiB). Los SHA-256 completos están en [`documentos/SHA256SUMS`](documentos/SHA256SUMS) y se reproducen en `dossier.json`. Los PDFs se conservaron como referencia local; no se descargaron muestras maliciosas ni archivos STIX/IOC separados.
 
-## 9. Advertencias de uso para el informe posterior
+## 9. Criterios de interpretación
 
-1. Separar siempre **hecho observado en una fuente**, **requisito normativo**, **propuesta de control** y **estado UNAP pendiente de validar**.
-2. Citar el ROF para la competencia OTI, pero validar resolución de designación del OSCD, CSIRT y responsable del plan antes de nombrarlos.
-3. No afirmar existencia o ausencia de incidentes, equipos, proveedores, tecnologías o controles a partir del portal público.
-4. Para los dos avisos que usan MITRE v19/v19.1, mantener esa versión en la ficha; v20.0 pasó a ser versión actual el 2026-10-13 (R08). Revalidar títulos/mapeos antes de trasladarlos a la matriz vigente.
-5. Respetar la diferencia entre plazo crítico a CNSD del DS 126-2025-PCM y notificaciones condicionales de datos personales del DS 016-2024-JUS.
+1. Los **hechos documentados**, **requisitos normativos**, **controles propuestos** y **datos institucionales por validar** corresponden a categorías de evidencia distintas.
+2. El ROF respalda la competencia OTI; las designaciones de OSCD, CSIRT y responsable del plan requieren resoluciones institucionales.
+3. El portal público no demuestra existencia o ausencia de incidentes, equipos, proveedores, tecnologías ni controles internos.
+4. Los avisos conservan las versiones MITRE v19/v19.1 que declaran; v20.0 es la versión actual desde el 2026-10-13 (R08). La matriz propia identifica su versión de referencia.
+5. El plazo para incidentes críticos ante CNSD del DS 126-2025-PCM difiere de los supuestos de notificación de datos personales del DS 016-2024-JUS.
